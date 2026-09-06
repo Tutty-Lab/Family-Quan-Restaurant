@@ -273,6 +273,38 @@ export function SettingsTab({ store }: { store: UseScheduleReturn }) {
           khách.
         </p>
 
+        {/* Chọn nhanh: số ngày + các ngày làm trong tuần. Bấm để bật/tắt. */}
+        <div className="mb-4 rounded-lg border border-slate-200 bg-slate-50 p-3">
+          <div className="text-sm font-medium text-slate-700 mb-2">Ngày làm trong tuần</div>
+          <div className="flex flex-wrap gap-1.5">
+            {WEEKDAY_ORDER.map((key) => {
+              const open = !schedule.workHours.closedWeekdays?.[key];
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  aria-pressed={open}
+                  onClick={() => setWeekdayClosed(key, open)}
+                  className={`rounded-full px-3 py-1.5 text-sm font-medium border transition-colors ${
+                    open
+                      ? "border-slate-900 bg-slate-900 text-white"
+                      : "border-slate-300 bg-white text-slate-400 line-through"
+                  }`}
+                >
+                  {WEEKDAY_SHORT_VI[key]}
+                </button>
+              );
+            })}
+          </div>
+          <div className="mt-2 text-xs text-slate-500">
+            Mở{" "}
+            <b>
+              {WEEKDAY_ORDER.filter((k) => !schedule.workHours.closedWeekdays?.[k]).length} ngày/tuần
+            </b>{" "}
+            · bấm vào thứ để bật/tắt ngày làm. Định mức tháng tự tính lại theo số ngày mở.
+          </div>
+        </div>
+
         <div>
           {WEEKDAY_ORDER.map((key) => (
             <BlockRow
@@ -287,7 +319,7 @@ export function SettingsTab({ store }: { store: UseScheduleReturn }) {
           <div className="my-2 border-t border-slate-200" />
           <BlockRow
             label="Ngày lễ"
-            hint="Tự áp dụng cho ngày lễ Bayern"
+            hint="Tự áp dụng cho ngày lễ Berlin"
             blocks={schedule.workHours.holiday}
             onChange={setHolidayWindow}
           />
@@ -296,7 +328,7 @@ export function SettingsTab({ store }: { store: UseScheduleReturn }) {
         {holidaysThisMonth.length > 0 && (
           <div className="mt-3 rounded bg-amber-50 border border-amber-200 px-3 py-2 text-xs text-amber-800">
             <div className="font-medium mb-1">
-              Ngày lễ Bayern trong {MONTH_NAMES_VI[schedule.month - 1]} {schedule.year}:
+              Ngày lễ Berlin trong {MONTH_NAMES_VI[schedule.month - 1]} {schedule.year}:
             </div>
             <ul className="space-y-1">
               {holidaysThisMonth.map(([iso, name]) => {
