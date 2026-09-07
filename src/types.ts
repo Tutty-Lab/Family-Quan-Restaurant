@@ -3,6 +3,7 @@
 // niemals mit Fließkomma-Stunden.
 // ============================================================================
 
+import type { WeekdayKey } from "./lib/demand";
 import type { DateOverride, DayWindow, WorkHoursConfig } from "./lib/workHours";
 
 /**
@@ -121,6 +122,19 @@ export type Employee = {
    * verteilen – wer wann frei nimmt, ist eine Absprache im Betrieb.
    */
   vacationDates?: string[];
+  /**
+   * Wochentage, an denen diese Person überhaupt eingeplant werden darf.
+   * Fehlt/leer = jeder Tag ist möglich (keine Einschränkung). Damit deckt EIN
+   * Feld beide Wünsche ab: "kommt nur Fr und So" (nur diese ankreuzen) und
+   * "hat freitags frei" (Freitag abwählen).
+   */
+  availableWeekdays?: WeekdayKey[];
+  /**
+   * Höchstzahl der Arbeitstage je Woche. Etwas anderes als availableWeekdays:
+   * dort steht, WELCHE Tage möglich sind, hier, WIE VIELE davon genutzt werden.
+   * Fehlt = nur die gesetzliche Sechs-Tage-Regel begrenzt.
+   */
+  maxDaysPerWeek?: number;
 };
 
 export type Shift = {

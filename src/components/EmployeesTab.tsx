@@ -4,12 +4,22 @@ import type { Employee, EmploymentType, WorkRole } from "../types";
 import { splitTargetHours } from "../lib/splitTargetHours";
 import { resolveDay } from "../lib/workHours";
 import { publicHolidays } from "../lib/holidays";
-import { datesOfMonth } from "../lib/demand";
+import { datesOfMonth, WEEKDAY_SHORT_VI, type WeekdayKey } from "../lib/demand";
 import { monthlyTargetMinutes, OPEN_DAYS_PER_WEEK } from "../lib/contract";
 import { employmentLabelVi, employmentShortVi } from "../lib/employment";
 
 const inputClass =
   "rounded border border-slate-300 px-2 py-1.5 text-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500";
+
+const WEEKDAY_ORDER: WeekdayKey[] = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+];
 
 /** Wochenstunden des Chefs: 7 Tage × 9 h bezahlt bei durchgehendem Dienst. */
 const OWNER_WEEKLY_HOURS = 63;
@@ -40,6 +50,8 @@ type Draft = {
   weekly: string;
   workRole: WorkRole;
   owner: boolean;
+  availableWeekdays: WeekdayKey[]; // [] = mọi ngày
+  maxDays: string;
 };
 
 function draftFrom(emp?: Employee): Draft {
@@ -50,6 +62,8 @@ function draftFrom(emp?: Employee): Draft {
     // Standard-Bereich: Service (bồi) – die Mehrheit der Kräfte.
     workRole: emp?.workRole ?? "SERVICE",
     owner: !!emp?.isOwner,
+    availableWeekdays: emp?.availableWeekdays ?? [],
+    maxDays: emp?.maxDaysPerWeek ? String(emp.maxDaysPerWeek) : "",
   };
 }
 
@@ -58,6 +72,7 @@ function draftToEmployee(d: Draft): Omit<Employee, "id"> {
   // Der Chef steht immer in der Küche und arbeitet die ganze Woche durch – sein
   // Bereich und seine Wochenstunden stehen deshalb fest.
   const weekly = d.owner ? OWNER_WEEKLY_HOURS : Math.max(0, Math.round(Number(d.weekly) || 0));
+  const tage = Number(d.maxDays);
   return {
     name: d.name.trim() || "Nhân viên mới",
     employmentType: d.employmentType,
@@ -65,6 +80,13 @@ function draftToEmployee(d: Draft): Omit<Employee, "id"> {
     weeklyHours: weekly,
     workRole: d.owner ? "KITCHEN" : d.workRole,
     isOwner: d.owner ? true : undefined,
+    // Der Chef arbeitet ohnehin jeden Tag – keine Wochentag-Einschränkung.
+    availableWeekdays:
+      d.owner || d.availableWeekdays.length === 0 || d.availableWeekdays.length === 7
+        ? undefined
+        : [...d.availableWeekdays],
+    maxDaysPerWeek:
+      d.owner || d.maxDays === "" || tage < 1 ? undefined : Math.min(7, Math.round(tage)),
   };
 }
 
@@ -369,6 +391,57 @@ function EmployeeSheet({
               </span>
             </span>
           </label>
+
+          {/* Ngày làm trong tuần + số ngày/tuần (không áp cho chủ). */}
+          {!d.owner && (
+            <div className="border-t border-slate-100 pt-3">
+              <div className="text-xs text-slate-600 mb-1.5">
+                Ngày làm trong tuần
+                {d.availableWeekdays.length === 0 && (
+                  <span className="text-slate-400"> — bỏ trống = làm mọi ngày</span>
+                )}
+              </div>
+              <div className="flex flex-wrap gap-1">
+                {WEEKDAY_ORDER.map((key) => {
+                  const alle = d.availableWeekdays.length === 0;
+                  const an = alle || d.availableWeekdays.includes(key);
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => {
+                        const basis = alle ? WEEKDAY_ORDER : d.availableWeekdays;
+                        const naechste = basis.includes(key)
+                          ? basis.filter((k) => k !== key)
+                          : [...basis, key];
+                        set("availableWeekdays", naechste);
+                      }}
+                      className={`rounded px-2 py-1 text-xs border transition-colors ${
+                        an
+                          ? "bg-slate-800 text-white border-slate-800"
+                          : "bg-white text-slate-400 border-slate-200 line-through"
+                      }`}
+                    >
+                      {WEEKDAY_SHORT_VI[key]}
+                    </button>
+                  );
+                })}
+              </div>
+              <label className="mt-2 flex items-center gap-2 text-xs text-slate-600">
+                Số ngày làm mỗi tuần
+                <input
+                  type="number"
+                  min={1}
+                  max={7}
+                  placeholder="—"
+                  className={`${inputClass} w-16`}
+                  value={d.maxDays}
+                  onChange={(e) => set("maxDays", e.target.value)}
+                />
+                <span className="text-slate-400">bỏ trống = không giới hạn</span>
+              </label>
+            </div>
+          )}
         </div>
 
         <div className="sticky bottom-0 bg-white border-t border-slate-200 px-4 py-3">
