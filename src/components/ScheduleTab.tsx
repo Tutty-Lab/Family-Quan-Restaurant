@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { UseScheduleReturn } from "../hooks/useSchedule";
-import type { Shift } from "../types";
+import type { Employee, Shift } from "../types";
 import {
   datesOfMonth,
   parseIsoDate,
@@ -27,6 +27,28 @@ function cellClass(shift: Shift | undefined): string {
   if (!shift) return "shift-free";
   const base = shift.shiftType === "EARLY" ? "shift-early" : "shift-late";
   return `${base} ${!shift.generated ? "shift-custom" : ""}`;
+}
+
+/**
+ * Bereichs-Etikett (Bồi / Bếp) für die Personenspalte. FamilyQuan teilt sich in
+ * Küche und Service; wer welchen Bereich macht, stand bisher nur im Tab „Nhân
+ * viên". Auf dem Plan direkt sichtbar zu machen spart beim Prüfen den Tabwechsel
+ * – und man sieht auf einen Blick, an welchen Tagen z. B. nur EIN Bồi steht.
+ */
+function RoleBadge({ role }: { role: Employee["workRole"] }) {
+  if (!role) return null;
+  const service = role === "SERVICE";
+  return (
+    <span
+      className={`inline-block rounded px-1.5 py-0.5 text-[10px] font-medium border ${
+        service
+          ? "bg-teal-100 text-teal-700 border-teal-200"
+          : "bg-amber-100 text-amber-800 border-amber-200"
+      }`}
+    >
+      {service ? "Bồi" : "Bếp"}
+    </span>
+  );
 }
 
 export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
@@ -101,10 +123,23 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
     return set;
   }, [dates, schedule.workHours, schedule.year, schedule.dateOverrides]);
 
+  // Bereich (Bồi/Bếp) je Person – für Etikett und Tageszählung.
+  const roleByEmp = useMemo(
+    () => new Map(schedule.employees.map((e) => [e.id, e.workRole] as const)),
+    [schedule.employees],
+  );
+
   // Tổng theo ngày cho các dòng chân bảng.
   const dayStats = useMemo(() => {
-    const stats = new Map<string, { count: number; total: number; early: number; late: number }>();
-    for (const d of dates) stats.set(d, { count: 0, total: 0, early: 0, late: 0 });
+    const stats = new Map<
+      string,
+      { count: number; total: number; early: number; late: number; service: number; kitchen: number }
+    >();
+    for (const d of dates) stats.set(d, { count: 0, total: 0, early: 0, late: 0, service: 0, kitchen: 0 });
+    // Pro Tag zählt jede PERSON nur einmal, egal ob sie mittags UND abends
+    // arbeitet – sonst stünde bei einem geteilten Dienst „2 Bồi", obwohl nur
+    // eine Person da ist.
+    const seen = new Set<string>();
     for (const s of schedule.shifts) {
       const st = stats.get(s.date);
       if (!st) continue;
@@ -112,9 +147,16 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
       st.total += s.paidMinutes;
       if (s.shiftType === "EARLY") st.early += 1;
       else st.late += 1; // LATE hoặc CUSTOM tính là ca tối
+      const key = `${s.date}#${s.employeeId}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        const role = roleByEmp.get(s.employeeId);
+        if (role === "SERVICE") st.service += 1;
+        else if (role === "KITCHEN") st.kitchen += 1;
+      }
     }
     return stats;
-  }, [dates, schedule.shifts]);
+  }, [dates, schedule.shifts, roleByEmp]);
 
   const hasEmployees = schedule.employees.length > 0;
 
@@ -262,6 +304,18 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
           <span className="inline-flex items-center gap-1">
             <span className="inline-block h-3 w-3 rounded border shift-custom bg-white" /> Đã sửa tay
           </span>
+          <span className="inline-flex items-center gap-1">
+            <span className="rounded border border-teal-200 bg-teal-100 px-1.5 text-[10px] font-medium text-teal-700">
+              Bồi
+            </span>
+            phục vụ (service)
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <span className="rounded border border-amber-200 bg-amber-100 px-1.5 text-[10px] font-medium text-amber-800">
+              Bếp
+            </span>
+            bếp (kitchen)
+          </span>
         </div>
       )}
 
@@ -328,7 +382,10 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
                 return (
                   <tr key={emp.id} className="hover:bg-slate-50/50">
                     <td className="sticky left-0 z-10 bg-white border-b border-r border-slate-200 px-2 py-1 font-medium whitespace-nowrap">
-                      {emp.name}
+                      <div className="flex items-center gap-1.5">
+                        <span>{emp.name}</span>
+                        <RoleBadge role={emp.workRole} />
+                      </div>
                     </td>
                     <td className="border-b border-slate-100 px-2 py-1 text-slate-500">
                       {employmentShortVi(emp.employmentType)}
@@ -386,6 +443,22 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
             </tbody>
             <tfoot>
               <SummaryRow label="Số nhân viên" dates={gridDates} value={(d) => String(dayStats.get(d)!.count)} />
+              {/* Số người theo bộ phận mỗi ngày – để thấy ngay ngày nào chỉ có
+                  1 bồi (hoặc thiếu bếp). Ô tô đỏ khi bộ phận có 0 người mà quán
+                  vẫn mở, cam khi chỉ có 1 bồi (không có người thay khi nghỉ). */}
+              <RoleSummaryRow
+                label="Bồi (service)"
+                dates={gridDates}
+                closedByDate={closedByDate}
+                count={(d) => dayStats.get(d)!.service}
+                warnAtOne
+              />
+              <RoleSummaryRow
+                label="Bếp (kitchen)"
+                dates={gridDates}
+                closedByDate={closedByDate}
+                count={(d) => dayStats.get(d)!.kitchen}
+              />
               <SummaryRow
                 label="Tổng giờ"
                 dates={gridDates}
@@ -433,6 +506,54 @@ function SummaryRow({
           {value(d)}
         </td>
       ))}
+      <td className="border-t border-l border-slate-200" />
+      <td className="border-t border-l border-slate-200" />
+    </tr>
+  );
+}
+
+/**
+ * Zählt je Tag die Personen eines Bereichs (Bồi/Bếp). An offenen Tagen fällt
+ * eine Null rot auf (Bereich unbesetzt) und – nur beim Service – eine Eins
+ * orange (nur EIN Bồi: fällt er aus, ist niemand da). Geschlossene Tage bleiben
+ * unmarkiert.
+ */
+function RoleSummaryRow({
+  label,
+  dates,
+  count,
+  closedByDate,
+  warnAtOne = false,
+}: {
+  label: string;
+  dates: string[];
+  count: (d: string) => number;
+  closedByDate: Set<string>;
+  warnAtOne?: boolean;
+}) {
+  return (
+    <tr className="bg-slate-50 text-slate-600">
+      <td className="sticky left-0 z-10 bg-slate-50 border-t border-r border-slate-200 px-2 py-1 font-medium whitespace-nowrap">
+        {label}
+      </td>
+      <td className="border-t border-slate-200" />
+      <td className="border-t border-slate-200" />
+      {dates.map((d) => {
+        const n = count(d);
+        const closed = closedByDate.has(d);
+        const cls = closed
+          ? "text-slate-300"
+          : n === 0
+            ? "bg-rose-100 text-rose-700 font-semibold"
+            : warnAtOne && n === 1
+              ? "bg-amber-100 text-amber-800 font-medium"
+              : "";
+        return (
+          <td key={d} className={`border-t border-l border-slate-200 px-1 py-1 text-center ${cls}`}>
+            {closed ? "–" : n}
+          </td>
+        );
+      })}
       <td className="border-t border-l border-slate-200" />
       <td className="border-t border-l border-slate-200" />
     </tr>
