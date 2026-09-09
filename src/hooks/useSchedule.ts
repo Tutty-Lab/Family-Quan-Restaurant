@@ -23,6 +23,7 @@ import { datesOfMonth } from "../lib/demand";
 import { publicHolidays } from "../lib/holidays";
 import { COMPANY_ADDRESS, COMPANY_NAME } from "../lib/company";
 import { createInitialSchedule } from "../lib/sampleData";
+import { analyzeServiceCoverage, serviceCoverageErrors } from "../lib/serviceCoverage";
 
 /**
  * Steht in diesem Stand überhaupt etwas? Maßstab sind Mitarbeiter und
@@ -171,10 +172,12 @@ export function useSchedule() {
     ).length;
   }, [schedule.year, schedule.month, schedule.workHours, schedule.dateOverrides]);
 
-  const validation: ValidationResult = useMemo(
-    () => validateSchedule(schedule.employees, schedule.shifts, schedule.year, openDays),
-    [schedule.employees, schedule.shifts, schedule.year, openDays],
-  );
+  const serviceCoverage = useMemo(() => analyzeServiceCoverage(schedule), [schedule]);
+  const validation: ValidationResult = useMemo(() => {
+    const base = validateSchedule(schedule.employees, schedule.shifts, schedule.year, openDays);
+    const coverageErrors = serviceCoverageErrors(serviceCoverage);
+    return { ...base, valid: base.valid && coverageErrors.length === 0, errors: [...base.errors, ...coverageErrors] };
+  }, [schedule.employees, schedule.shifts, schedule.year, openDays, serviceCoverage]);
 
   /**
    * Tage, an denen eine Stoßzeit unterbesetzt ist.
@@ -347,6 +350,9 @@ export function useSchedule() {
         // Frischer Seed pro Klick => jedes Mal ein anderer gültiger Plan.
         seed: `${schedule.year}-${schedule.month}-${Date.now()}-${genNonce.current++}`,
       });
+      if (shifts.length === 0 && openDays > 0 && schedule.employees.length > 0) {
+        throw new Error("Không xếp được ca nào. Kiểm tra định mức, ngày có thể làm và giờ mở cửa; lịch hiện tại được giữ nguyên.");
+      }
       setSchedule((s) => ({ ...s, shifts, lockedAt: undefined, printedWeeks: [] }));
       setOriginalShifts(shifts.map((sh) => ({ ...sh })));
     } catch (err) {
@@ -358,6 +364,7 @@ export function useSchedule() {
     schedule.workHours,
     schedule.dateOverrides,
     schedule.employees,
+    openDays,
   ]);
 
   const resetToOriginal = useCallback(() => {
@@ -404,7 +411,7 @@ export function useSchedule() {
   const editShiftTimes = useCallback(
     (
       shiftId: string,
-      changes: Partial<Pick<Shift, "startMinutes" | "endMinutes" | "pauseMinutes">>,
+      changes: Partial<Pick<Shift, "startMinutes" | "endMinutes" | "pauseMinutes" | "pauseStartMinutes">>,
     ) => {
       setSchedule((s) => {
         if (s.lockedAt) return s; // Monat gedruckt und gesperrt
@@ -418,12 +425,12 @@ export function useSchedule() {
   );
 
   const addShift = useCallback(
-    (employeeId: string, date: string, start: number, end: number, pause: number) => {
+    (employeeId: string, date: string, start: number, end: number, pause: number, pauseStart?: number) => {
       setSchedule((s) => {
         if (s.lockedAt) return s; // Monat gedruckt und gesperrt
         const exists = s.shifts.some((sh) => sh.employeeId === employeeId && sh.date === date);
         if (exists) return s;
-        return { ...s, shifts: [...s.shifts, createManualShift(employeeId, date, start, end, pause)] };
+        return { ...s, shifts: [...s.shifts, createManualShift(employeeId, date, start, end, pause, pauseStart)] };
       });
     },
     [],
@@ -471,6 +478,7 @@ export function useSchedule() {
     originalShifts,
     validation,
     peakGaps,
+    serviceCoverage,
     openDays,
     isLocked,
     markWeekPrinted,

@@ -14,6 +14,7 @@ import { publicHolidayNames, publicHolidays } from "../lib/holidays";
 import { isDayClosed } from "../lib/workHours";
 import { format } from "date-fns";
 import { employmentLabelVi } from "../lib/employment";
+import { BreakLabel, ServiceCoveragePanel } from "./ServiceCoveragePanel";
 
 /** Chế độ xem theo từng ngày – tối ưu cho điện thoại (không cuộn ngang). */
 export function ScheduleDayView({
@@ -142,6 +143,9 @@ export function ScheduleDayView({
         <Summary label="Sáng / Tối" value={`${earlyCount} / ${lateCount}`} />
       </div>
 
+      {(schedule.shifts.length > 0 || store.hasOriginal) &&
+        <ServiceCoveragePanel days={store.serviceCoverage.filter((day) => day.date === selected)} employees={schedule.employees} />}
+
       {/* Danh sách người làm */}
       <div className="mt-3 space-y-2">
         {working.length === 0 ? (
@@ -172,7 +176,7 @@ export function ScheduleDayView({
                     {minutesToTime(s.startMinutes)}–{minutesToTime(s.endMinutes)}
                   </div>
                   <div className="text-xs opacity-80">
-                    {minutesToShortHours(s.paidMinutes)} · Nghỉ {s.pauseMinutes}
+                    {minutesToShortHours(s.paidMinutes)} · <BreakLabel shift={s} />
                   </div>
                 </div>
               </button>

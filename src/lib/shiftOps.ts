@@ -28,6 +28,7 @@ export function createManualShift(
   startMinutes: number,
   endMinutes: number,
   pauseMinutes: number,
+  pauseStartMinutes?: number,
 ): Shift {
   return {
     id: nextManualShiftId(),
@@ -36,6 +37,7 @@ export function createManualShift(
     startMinutes,
     endMinutes,
     pauseMinutes,
+    pauseStartMinutes,
     paidMinutes: paidFromTimes(startMinutes, endMinutes, pauseMinutes),
     shiftType: "CUSTOM",
     generated: false,
@@ -45,16 +47,21 @@ export function createManualShift(
 /** Ändert Zeiten/Pause einer Schicht und berechnet bezahlte Minuten neu. */
 export function updateShiftTimes(
   shift: Shift,
-  changes: Partial<Pick<Shift, "startMinutes" | "endMinutes" | "pauseMinutes">>,
+  changes: Partial<Pick<Shift, "startMinutes" | "endMinutes" | "pauseMinutes" | "pauseStartMinutes">>,
 ): Shift {
   const startMinutes = changes.startMinutes ?? shift.startMinutes;
   const endMinutes = changes.endMinutes ?? shift.endMinutes;
   const pauseMinutes = changes.pauseMinutes ?? shift.pauseMinutes;
+  const proposedBreak = "pauseStartMinutes" in changes ? changes.pauseStartMinutes : shift.pauseStartMinutes;
+  const pauseStartMinutes = pauseMinutes > 0 && proposedBreak != null && proposedBreak > startMinutes &&
+    proposedBreak + pauseMinutes < endMinutes ? proposedBreak : undefined;
   return {
     ...shift,
     startMinutes,
     endMinutes,
     pauseMinutes,
+    pauseStartMinutes,
+    isBreakCover: false,
     paidMinutes: paidFromTimes(startMinutes, endMinutes, pauseMinutes),
     shiftType: "CUSTOM",
     generated: false,

@@ -145,6 +145,10 @@ export type Shift = {
   startMinutes: number;
   endMinutes: number;
   pauseMinutes: number;
+  /** Explicit break inside the shift; the employee does not cover service then. */
+  pauseStartMinutes?: number;
+  /** Short service assignment specifically covering another employee's break. */
+  isBreakCover?: boolean;
   /** Bezahlte Arbeitszeit in Minuten = presence - pause. */
   paidMinutes: number;
   shiftType: ShiftType;

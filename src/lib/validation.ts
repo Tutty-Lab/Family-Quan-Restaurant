@@ -11,6 +11,9 @@ import {
 import { monthlyTargetMinutes } from "./contract";
 import { calculatePause } from "./time";
 import { maxConsecutiveRun } from "./consecutive";
+import { hasValidBreak } from "./serviceCoverage";
+import { mayWorkOn } from "./availability";
+import { weekStartOf } from "./weeks";
 
 export type ValidationError = {
   employeeId?: string;
@@ -70,9 +73,6 @@ export function validateSchedule(
     openDays != null ? monthlyTargetMinutes(e, openDays) : e.targetMinutes;
   const employeeById = new Map(employees.map((e) => [e.id, e] as const));
 
-  // FamilyQuan verwaltet KEINEN Urlaub – es gibt deshalb auch keine
-  // Urlaubsprüfung. (Der `year`-Parameter bleibt für die Signatur erhalten.)
-
   // Azubi: höchstens 43 Stunden im Monat. Eine WARNUNG, kein Riegel – ob mehr
   // erlaubt ist, steht im Ausbildungsvertrag und nicht in diesem Programm.
   for (const emp of employees) {
@@ -105,6 +105,12 @@ export function validateSchedule(
     const presence = shift.endMinutes - shift.startMinutes;
     const expectedPaid = presence - shift.pauseMinutes;
     const expectedPause = calculatePause(shift.paidMinutes);
+    const employee = employeeById.get(shift.employeeId);
+    if (employee && !mayWorkOn(employee, shift.date)) {
+      errors.push({ employeeId: employee.id, date: shift.date,
+        message: `${employee.name}: đã xếp ca vào ngày không thể làm ${shift.date}.`,
+      });
+    }
 
     if (shift.endMinutes <= shift.startMinutes) {
       errors.push({
@@ -137,6 +143,11 @@ export function validateSchedule(
         message: `Sai giờ nghỉ ngày ${shift.date}: ${shift.pauseMinutes} thay vì ${expectedPause} phút.`,
       });
     }
+    if (shift.pauseStartMinutes != null && !hasValidBreak(shift)) {
+      errors.push({ employeeId: shift.employeeId, date: shift.date,
+        message: `Giờ nghỉ không hợp lệ ngày ${shift.date}: phải nằm trong ca, không làm liên tục quá 6 giờ.`,
+      });
+    }
   }
 
   const summaries: EmployeeSummary[] = [];
@@ -165,6 +176,19 @@ export function validateSchedule(
         });
       }
       seenDates.add(shift.date);
+    }
+
+    if (emp.maxDaysPerWeek != null && !emp.isOwner) {
+      const counts = new Map<string, number>();
+      for (const date of seenDates) {
+        const week = weekStartOf(date);
+        counts.set(week, (counts.get(week) ?? 0) + 1);
+      }
+      for (const [week, count] of counts) {
+        if (count > emp.maxDaysPerWeek) errors.push({ employeeId: emp.id, date: week,
+          message: `${emp.name}: tuần ${week} đã xếp ${count} ngày, vượt giới hạn ${emp.maxDaysPerWeek} ngày/tuần.`,
+        });
+      }
     }
 
     const assignedMinutes = empShifts.reduce((sum, s) => sum + s.paidMinutes, 0);

@@ -9,6 +9,7 @@ import { minutesToShortHours, minutesToTime } from "../lib/time";
 import { publicHolidayNames, publicHolidays } from "../lib/holidays";
 import { isDayClosed } from "../lib/workHours";
 import { format } from "date-fns";
+import { analyzeServiceCoverage } from "../lib/serviceCoverage";
 
 /**
  * Wie herum die Tabelle steht.
@@ -24,7 +25,7 @@ export type SchedulePrintLayout = "byEmployee" | "byDate";
  * Eine Zelle kann MEHRERE Dienste enthalten – mittags und abends. Steht dort
  * nur einer, fehlt auf dem ausgehängten Plan die halbe Wahrheit.
  */
-function ShiftCell({ shifts, closed }: { shifts: Shift[]; closed: boolean }) {
+function ShiftCell({ shifts, closed, replacements }: { shifts: Shift[]; closed: boolean; replacements: Map<string, string> }) {
   if (shifts.length === 0) {
     return <span className="text-slate-400">{closed ? "—" : "frei"}</span>;
   }
@@ -39,6 +40,11 @@ function ShiftCell({ shifts, closed }: { shifts: Shift[]; closed: boolean }) {
             {minutesToShortHours(shift.paidMinutes)}
             {shift.pauseMinutes > 0 && ` · P ${shift.pauseMinutes}`}
           </div>
+          {shift.pauseStartMinutes != null && shift.pauseMinutes > 0 && <div className="text-[9px] text-slate-600">
+            Pause {minutesToTime(shift.pauseStartMinutes)}–{minutesToTime(shift.pauseStartMinutes + shift.pauseMinutes)}
+            {replacements.has(shift.id) && <div>Vertretung: {replacements.get(shift.id)}</div>}
+          </div>}
+          {shift.isBreakCover && <div className="text-[9px]">Pausenvertretung</div>}
         </div>
       ))}
     </>
@@ -80,6 +86,10 @@ export function SchedulePrintPage({
   const holidayNames = publicHolidayNames(schedule.year);
   const overrides = Object.fromEntries(schedule.dateOverrides.map((o) => [o.date, o]));
   const closedOn = (d: string) => isDayClosed(schedule.workHours, d, holidays, overrides);
+  const names = new Map(schedule.employees.map((e) => [e.id, e.name]));
+  const replacements = new Map(analyzeServiceCoverage(schedule).flatMap((day) => day.breaks.map((pause) => [
+    pause.shiftId, pause.covered ? pause.coveringEmployeeIds.map((id) => names.get(id)).join(", ") : "fehlt",
+  ] as const)));
 
   const th = "border border-slate-300 px-2 py-1 font-semibold";
   const td = "border border-slate-300 px-2 py-[3px]";
@@ -121,7 +131,7 @@ export function SchedulePrintPage({
                   <td className={`${td} whitespace-nowrap`}>{e.name}</td>
                   {dates.map((d) => (
                     <td key={d} className={`${td} text-center ${closedOn(d) ? "bg-slate-50" : ""}`}>
-                      <ShiftCell shifts={byKey.get(`${e.id}#${d}`) ?? []} closed={closedOn(d)} />
+                      <ShiftCell shifts={byKey.get(`${e.id}#${d}`) ?? []} closed={closedOn(d)} replacements={replacements} />
                     </td>
                   ))}
                   <td className={`${td} text-right font-medium`}>{minutesToShortHours(total)}</td>
@@ -171,7 +181,7 @@ export function SchedulePrintPage({
                   </td>
                   {emps.map((e) => (
                     <td key={e.id} className={`${td} text-center`}>
-                      <ShiftCell shifts={byKey.get(`${e.id}#${d}`) ?? []} closed={closed} />
+                      <ShiftCell shifts={byKey.get(`${e.id}#${d}`) ?? []} closed={closed} replacements={replacements} />
                     </td>
                   ))}
                 </tr>

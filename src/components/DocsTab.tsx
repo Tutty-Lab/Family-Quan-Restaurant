@@ -114,6 +114,13 @@ export function DocsTab() {
             công chiếm đúng 10 tiếng (12:00–22:00).
           </li>
           <li>
+            <b>Bồi nghỉ phải có người thay:</b> ca bồi dài ghi rõ giờ nghỉ; ca thay có thể
+            chỉ <b>1 giờ</b>. Ví dụ: một bồi làm 12:00–22:00, nghỉ 16:00–17:00;
+            bồi khác làm 16:00–17:00. Tổng giờ công vẫn đúng hợp đồng. Xem tên người thay
+            ở mục <b>„Giờ nghỉ &amp; người thay"</b> trong lịch. Hệ thống báo lỗi nếu không
+            đủ người hoặc giờ hợp đồng để phủ giờ mở cửa, kể cả sau khi sửa ca bằng tay.
+          </li>
+          <li>
             Quán mở <b>liền một khung 12:00–22:00</b> mỗi ngày (không nghỉ trưa). Mỗi ca nằm
             gọn trong khung này.
           </li>

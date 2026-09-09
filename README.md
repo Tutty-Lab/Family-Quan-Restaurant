@@ -30,6 +30,15 @@ Küche durchgehend besetzt.
   1,0).
 - **Pause:** 60 Minuten ab mehr als 6 h bezahlter Zeit („Pause 60p"; über dem
   gesetzlichen Minimum § 4 ArbZG).
+- **Service-Pausenvertretung:** `serviceScheduler.ts` verteilt die vorhandenen
+  Monatsstunden als abloesende Kurzschichten oder Ganztagsdienst mit einer
+  expliziten Pause (`pauseStartMinutes`) und Vertretung. Eine reine Vertretung
+  darf abweichend von normalen Diensten nur eine Stunde dauern (`isBreakCover`).
+  Die Stundenvertraege und Rollen bleiben unveraendert. `serviceCoverage.ts`
+  prueft jede offene Zeitspanne ohne pausierende Kraefte; fehlende Vertretung
+  und alte Plaene ohne Pausenzeit erscheinen als Fehler, auch nach Handkorrekturen.
+  Bei nicht unterstuetzten Fenstern oder unloesbaren Vorgaben bleibt der bisherige
+  Planungsweg verfuegbar; die Pruefung meldet dessen verbleibende Luecken.
 - **Urlaub** je Person im Tab *Nhân viên* (Arbeitstage, § 3 BUrlG; über dem
   Jahresanspruch nur eine Warnung).
 - Belegschaft laut Angabe: **6 Kräfte** (Wochenstunden) plus der Chef – 2 Küche,
@@ -112,10 +121,11 @@ werden direkt aus den Konstanten gerendert und können daher nicht veralten.
     die jemand von halb zwölf bis zehn im Dienst ist, mit zwei Wegen. Nur wenn
     das engere Rücken die Stoßzeit schlechter besetzt, bleibt die Lücke.
 - Höchstens **6 aufeinanderfolgende** Arbeitstage.
-- **Pause** (`calculatePause`) nach § 4 ArbZG: über 6 h = 30 Min, über 9 h =
-  45 Min. Das ArbZG ist Bundesrecht und gilt überall gleich.
+- **Pause** (`calculatePause`): ueber 6 h bezahlte Zeit = 60 Min nach Vorgabe
+  des Betriebs; damit ueber dem gesetzlichen Minimum.
   `presence = paid + pause`.
 - Schichtlängen: **3 bis 9 Stunden**. Vollzeit bekommt 4..9 h, Teilzeit 3..9 h.
+  Ausnahme: reine Service-Pausenvertretung ab 1 h; nur mit passendem Gegenpart.
   Etwa jede zehnte Schicht wird bewusst auf 4–5 h gekürzt
   (`SHORT_SHIFT_CHANCE`), damit die Pläne nicht mechanisch aussehen – aber nur,
   wenn der Tag keinen langen Dienst mehr für die Stoßzeit braucht.

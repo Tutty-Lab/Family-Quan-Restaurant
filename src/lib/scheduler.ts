@@ -50,6 +50,8 @@ import {
   type WorkHoursConfig,
 } from "./workHours";
 import { publicHolidays } from "./holidays";
+import { tryGenerateServiceSchedule } from "./serviceScheduler";
+import { isWorkingAt } from "./serviceCoverage";
 
 export type GenerateInput = {
   year: number;
@@ -271,11 +273,9 @@ export const PEAK_WINDOWS_BY_WEEKDAY: Record<WeekdayKey, readonly PeakWindow[]> 
   sunday: [ABEND],
 };
 
-/** Wie viele Leute sind zum Zeitpunkt `t` anwesend (Anwesenheit inkl. Pause)? */
+/** Counts working people, excluding explicitly scheduled breaks. */
 function coverageAt(shifts: Shift[], t: number): number {
-  let n = 0;
-  for (const s of shifts) if (s.startMinutes <= t && s.endMinutes > t) n++;
-  return n;
+  return new Set(shifts.filter((s) => isWorkingAt(s, t)).map((s) => s.employeeId)).size;
 }
 
 /**
@@ -288,6 +288,9 @@ export function minCoverageOver(shifts: Shift[], from: number, to: number): numb
   for (const s of shifts) {
     if (s.startMinutes > from && s.startMinutes < to) probes.add(s.startMinutes);
     if (s.endMinutes > from && s.endMinutes < to) probes.add(s.endMinutes);
+    for (const t of [s.pauseStartMinutes, s.pauseStartMinutes == null ? undefined : s.pauseStartMinutes + s.pauseMinutes]) {
+      if (t != null && t > from && t < to) probes.add(t);
+    }
   }
   let min = Number.POSITIVE_INFINITY;
   for (const t of probes) min = Math.min(min, coverageAt(shifts, t));
@@ -303,6 +306,9 @@ export function maxCoverageOver(shifts: Shift[], from: number, to: number): numb
   for (const s of shifts) {
     if (s.startMinutes > from && s.startMinutes < to) probes.add(s.startMinutes);
     if (s.endMinutes > from && s.endMinutes < to) probes.add(s.endMinutes);
+    for (const t of [s.pauseStartMinutes, s.pauseStartMinutes == null ? undefined : s.pauseStartMinutes + s.pauseMinutes]) {
+      if (t != null && t > from && t < to) probes.add(t);
+    }
   }
   let max = 0;
   for (const t of probes) max = Math.max(max, coverageAt(shifts, t));
@@ -2691,8 +2697,9 @@ export function generateSchedule(input: GenerateInput): Shift[] {
   const alle: Shift[] = [];
   let tag = 0;
   for (const key of order) {
+    const servicePlan = key === "SERVICE" ? tryGenerateServiceSchedule(groups.get(key)!, dates, dayOf) : undefined;
     alle.push(
-      ...scheduleZone(groups.get(key)!, dates, effKeyOf, dayOf, String(tag++)),
+      ...(servicePlan ?? scheduleZone(groups.get(key)!, dates, effKeyOf, dayOf, String(tag++))),
     );
   }
 

@@ -17,6 +17,7 @@ import { ScheduleDayView } from "./ScheduleDayView";
 import { weeksOfMonth } from "../lib/weeks";
 import { employmentShortVi } from "../lib/employment";
 import { monthlyTargetMinutes } from "../lib/contract";
+import { BreakLabel, ServiceCoveragePanel } from "./ServiceCoveragePanel";
 
 function isWeekendKey(iso: string): boolean {
   const k = weekdayKeyOf(parseIsoDate(iso));
@@ -54,7 +55,7 @@ function RoleBadge({ role }: { role: Employee["workRole"] }) {
 export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
   // Drucken (Monat/Woche) und Entsperren liegen im Tab „Bảng chấm công" –
   // dort sitzt alles, was Papier erzeugt.
-  const { schedule, validation, generate, genError, isLocked, openDays } = store;
+  const { schedule, validation, generate, genError, isLocked, openDays, serviceCoverage } = store;
   const [selected, setSelected] = useState<{ employeeId: string; date: string } | null>(null);
   // Zweiter Klick, um einen gesperrten (gedruckten) Monat neu zu erzeugen –
   // ohne native Rückfrage, die manche In-App-Browser verschlucken.
@@ -159,6 +160,7 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
   }, [dates, schedule.shifts, roleByEmp]);
 
   const hasEmployees = schedule.employees.length > 0;
+  const serviceByDate = new Map(serviceCoverage.map((day) => [day.date, day]));
 
   return (
     <section>
@@ -289,6 +291,9 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
         </div>
       )}
 
+      {view !== "day" && (schedule.shifts.length > 0 || store.hasOriginal) &&
+        <ServiceCoveragePanel days={serviceCoverage.filter((day) => gridDates.includes(day.date))} employees={schedule.employees} />}
+
       {/* Chú thích (bảng tháng và bảng tuần dùng chung lưới) */}
       {view !== "day" && (
         <div className="flex flex-wrap gap-3 mb-2 text-xs text-slate-600">
@@ -413,7 +418,7 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
                                     {minutesToTime(x.startMinutes)}–{minutesToTime(x.endMinutes)}
                                   </div>
                                   <div className="text-[10px] opacity-80">
-                                    {minutesToShortHours(x.paidMinutes)} · Nghỉ {x.pauseMinutes}
+                                    {minutesToShortHours(x.paidMinutes)} · <BreakLabel shift={x} />
                                   </div>
                                 </div>
                               ))}
@@ -443,16 +448,20 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
             </tbody>
             <tfoot>
               <SummaryRow label="Số nhân viên" dates={gridDates} value={(d) => String(dayStats.get(d)!.count)} />
-              {/* Số người theo bộ phận mỗi ngày – để thấy ngay ngày nào chỉ có
-                  1 bồi (hoặc thiếu bếp). Ô tô đỏ khi bộ phận có 0 người mà quán
-                  vẫn mở, cam khi chỉ có 1 bồi (không có người thay khi nghỉ). */}
+              {/* Headcount and continuous service coverage answer different questions. */}
               <RoleSummaryRow
-                label="Bồi (service)"
+                label="Bồi có ca trong ngày"
                 dates={gridDates}
                 closedByDate={closedByDate}
                 count={(d) => dayStats.get(d)!.service}
-                warnAtOne
               />
+              {serviceCoverage.length > 0 && (schedule.shifts.length > 0 || store.hasOriginal) && <RoleSummaryRow
+                label="Bồi tối thiểu đang làm"
+                dates={gridDates}
+                closedByDate={closedByDate}
+                count={(d) => serviceByDate.get(d)?.minStaff ?? 0}
+                unknown={(d) => serviceByDate.get(d)?.breaks.some((b) => b.start == null) ?? false}
+              />}
               <RoleSummaryRow
                 label="Bếp (kitchen)"
                 dates={gridDates}
@@ -513,23 +522,20 @@ function SummaryRow({
 }
 
 /**
- * Zählt je Tag die Personen eines Bereichs (Bồi/Bếp). An offenen Tagen fällt
- * eine Null rot auf (Bereich unbesetzt) und – nur beim Service – eine Eins
- * orange (nur EIN Bồi: fällt er aus, ist niemand da). Geschlossene Tage bleiben
- * unmarkiert.
+ * Zero or unverified coverage is red. Closed days stay neutral.
  */
 function RoleSummaryRow({
   label,
   dates,
   count,
   closedByDate,
-  warnAtOne = false,
+  unknown,
 }: {
   label: string;
   dates: string[];
   count: (d: string) => number;
   closedByDate: Set<string>;
-  warnAtOne?: boolean;
+  unknown?: (d: string) => boolean;
 }) {
   return (
     <tr className="bg-slate-50 text-slate-600">
@@ -543,14 +549,12 @@ function RoleSummaryRow({
         const closed = closedByDate.has(d);
         const cls = closed
           ? "text-slate-300"
-          : n === 0
+          : n === 0 || unknown?.(d)
             ? "bg-rose-100 text-rose-700 font-semibold"
-            : warnAtOne && n === 1
-              ? "bg-amber-100 text-amber-800 font-medium"
-              : "";
+            : "";
         return (
           <td key={d} className={`border-t border-l border-slate-200 px-1 py-1 text-center ${cls}`}>
-            {closed ? "–" : n}
+            {closed ? "–" : unknown?.(d) ? "Chưa rõ" : n}
           </td>
         );
       })}

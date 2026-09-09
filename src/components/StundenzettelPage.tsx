@@ -124,7 +124,12 @@ export function StundenzettelPage({
                 <Td>{wd}</Td>
                 <Td className="text-center">{s ? zeiten("startMinutes") : ""}</Td>
                 <Td className="text-center">{s ? zeiten("endMinutes") : ""}</Td>
-                <Td className="text-center">{s ? `${pauseGesamt} Min` : ""}</Td>
+                <Td className="text-center">
+                  {s ? `${pauseGesamt} Min` : ""}
+                  {dienste.filter((x) => x.pauseStartMinutes != null && x.pauseMinutes > 0).map((x) => (
+                    <div key={x.id} className="text-[10px]">{minutesToTime(x.pauseStartMinutes!)}–{minutesToTime(x.pauseStartMinutes! + x.pauseMinutes)}</div>
+                  ))}
+                </Td>
                 <Td className="text-center">
                   {s ? minutesToDecimalHours(bezahltGesamt) : "0,00"}
                 </Td>
