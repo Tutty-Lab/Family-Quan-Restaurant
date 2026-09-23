@@ -52,6 +52,8 @@ export default defineConfig({
       },
     }),
   ],
+  // jsPDF's optional HTML/SVG plugins are unused: never bundle DOM rasterizers.
+  build: { rollupOptions: { external: ["html2canvas", "canvg", "dompurify"] } },
   test: {
     environment: "node",
     include: ["src/**/*.test.ts"],
