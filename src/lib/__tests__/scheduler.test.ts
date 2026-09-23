@@ -98,7 +98,7 @@ describe("Scheduler – August 2026 Beispieldaten", () => {
     for (const s of shifts) {
       byDate.set(s.date, (byDate.get(s.date) ?? 0) + s.paidMinutes);
     }
-    // 2026-08-01 ist Samstag (Gewicht 1,5), 2026-08-04 ein Dienstag (1,0).
+    // 2026-08-01 ist Samstag (Gewicht 1,2), 2026-08-04 ein Dienstag (1,0).
     // Der Montag ist geschlossen, deshalb der Vergleich gegen einen Werktag.
     const sat = byDate.get("2026-08-01") ?? 0;
     const tue = byDate.get("2026-08-04") ?? 0;

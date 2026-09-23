@@ -23,7 +23,8 @@ import { datesOfMonth } from "../lib/demand";
 import { publicHolidays } from "../lib/holidays";
 import { COMPANY_ADDRESS, COMPANY_NAME } from "../lib/company";
 import { createInitialSchedule } from "../lib/sampleData";
-import { analyzeServiceCoverage, serviceCoverageErrors } from "../lib/serviceCoverage";
+import { analyzeRoleCoverage, analyzeServiceCoverage, serviceCoverageErrors } from "../lib/serviceCoverage";
+import { weeklyDistributionWarnings } from "../lib/weeklyDistribution";
 
 /**
  * Steht in diesem Stand überhaupt etwas? Maßstab sind Mitarbeiter und
@@ -173,11 +174,14 @@ export function useSchedule() {
   }, [schedule.year, schedule.month, schedule.workHours, schedule.dateOverrides]);
 
   const serviceCoverage = useMemo(() => analyzeServiceCoverage(schedule), [schedule]);
+  const kitchenCoverage = useMemo(() => analyzeRoleCoverage(schedule, "KITCHEN"), [schedule]);
   const validation: ValidationResult = useMemo(() => {
     const base = validateSchedule(schedule.employees, schedule.shifts, schedule.year, openDays);
-    const coverageErrors = serviceCoverageErrors(serviceCoverage);
-    return { ...base, valid: base.valid && coverageErrors.length === 0, errors: [...base.errors, ...coverageErrors] };
-  }, [schedule.employees, schedule.shifts, schedule.year, openDays, serviceCoverage]);
+    const coverageErrors = [...serviceCoverageErrors(serviceCoverage), ...serviceCoverageErrors(kitchenCoverage, "KITCHEN")];
+    const weeklyWarnings = weeklyDistributionWarnings(schedule.employees, schedule.shifts, datesOfMonth(schedule.year, schedule.month),
+      (date) => resolveDay(schedule.workHours, date, publicHolidays(schedule.year), overridesToMap(schedule.dateOverrides)));
+    return { ...base, valid: base.valid && coverageErrors.length === 0, errors: [...base.errors, ...coverageErrors, ...weeklyWarnings] };
+  }, [schedule.employees, schedule.shifts, schedule.year, openDays, serviceCoverage, kitchenCoverage]);
 
   /**
    * Tage, an denen eine Stoßzeit unterbesetzt ist.
@@ -479,6 +483,7 @@ export function useSchedule() {
     validation,
     peakGaps,
     serviceCoverage,
+    kitchenCoverage,
     openDays,
     isLocked,
     markWeekPrinted,

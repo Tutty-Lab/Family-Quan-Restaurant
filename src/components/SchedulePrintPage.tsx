@@ -9,7 +9,7 @@ import { minutesToShortHours, minutesToTime } from "../lib/time";
 import { publicHolidayNames, publicHolidays } from "../lib/holidays";
 import { isDayClosed } from "../lib/workHours";
 import { format } from "date-fns";
-import { analyzeServiceCoverage } from "../lib/serviceCoverage";
+import { analyzeRoleCoverage, analyzeServiceCoverage } from "../lib/serviceCoverage";
 
 /**
  * Wie herum die Tabelle steht.
@@ -45,6 +45,9 @@ function ShiftCell({ shifts, closed, replacements }: { shifts: Shift[]; closed: 
             {replacements.has(shift.id) && <div>Vertretung: {replacements.get(shift.id)}</div>}
           </div>}
           {shift.isBreakCover && <div className="text-[9px]">Pausenvertretung</div>}
+          {shift.serviceCoverWindows?.map((w) => <div key={w.startMinutes} className="text-[9px]">
+            Service: {minutesToTime(w.startMinutes)}–{minutesToTime(w.endMinutes)}
+          </div>)}
         </div>
       ))}
     </>
@@ -87,7 +90,7 @@ export function SchedulePrintPage({
   const overrides = Object.fromEntries(schedule.dateOverrides.map((o) => [o.date, o]));
   const closedOn = (d: string) => isDayClosed(schedule.workHours, d, holidays, overrides);
   const names = new Map(schedule.employees.map((e) => [e.id, e.name]));
-  const replacements = new Map(analyzeServiceCoverage(schedule).flatMap((day) => day.breaks.map((pause) => [
+  const replacements = new Map([...analyzeServiceCoverage(schedule), ...analyzeRoleCoverage(schedule, "KITCHEN")].flatMap((day) => day.breaks.map((pause) => [
     pause.shiftId, pause.covered ? pause.coveringEmployeeIds.map((id) => names.get(id)).join(", ") : "fehlt",
   ] as const)));
 

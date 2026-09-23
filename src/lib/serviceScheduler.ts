@@ -6,6 +6,7 @@ import type { ResolvedDay } from "./workHours";
 
 type Part = { hours: number; start: number; end: number; pauseStart?: number; cover?: boolean };
 type Pair = [Part, Part];
+const shortCount = (parts: Pair) => parts.filter((part) => part.hours < 3).length;
 
 function pairsFor(start: number, end: number, totalHours: number): Pair[] {
   const hours = (end - start) / 60;
@@ -72,16 +73,17 @@ export function tryGenerateServiceSchedule(
     open.slice(i).reduce((sum, _date, offset) => sum + (eligible[i + offset][e] ? 9 : 0), 0),
   ));
   let visits = 0;
+  let shortWeight = 0;
   const failed = new Set<string>();
   const result: { people: [number, number]; parts: Pair }[] = [];
 
-  function search(day: number, left: number[], runs: number[], weekDays: number[]): boolean {
+  function search(day: number, left: number[], runs: number[], weekDays: number[], shortBudget: number): boolean {
     if (day === open.length) return left.every((h) => h === 0);
     if (++visits > 60_000) return false;
     if (left.some((h, e) => h < 0 || h > futureCapacity[day][e])) return false;
     const remainingSurplus = left.reduce((sum, hours) => sum + hours, 0) - remainingBase[day];
     if (remainingSurplus < 0 || remainingSurplus > (open.length - day) * 12 - remainingBase[day]) return false;
-    const key = `${day}|${left}|${runs}|${weekDays}`;
+    const key = `${day}|${left}|${runs}|${weekDays}|${shortBudget}`;
     if (failed.has(key)) return false;
     const newWeek = day === 0 || weeks[day] !== weeks[day - 1];
     const consecutive = day > 0 && daysBetween(open[day - 1], open[day]) === 1;
@@ -91,6 +93,7 @@ export function tryGenerateServiceSchedule(
     for (let a = 0; a < team.length; a++) for (let b = 0; b < team.length; b++) {
       if (a === b || !allowed[a] || !allowed[b]) continue;
       for (const parts of templates[day]) {
+        if (shortCount(parts) > shortBudget) continue;
         const extra = parts[0].hours + parts[1].hours - dailyHours[day];
         if (extra > remainingSurplus) continue;
         if (parts[0].hours > left[a] || parts[1].hours > left[b]) continue;
@@ -100,7 +103,7 @@ export function tryGenerateServiceSchedule(
         const score = left.reduce((sum, hours, e) => {
           const used = e === a ? parts[0].hours : e === b ? parts[1].hours : 0;
           return sum + (hours - used - targets[e] * (remainingDays - 1) / open.length) ** 2;
-        }, 0) + (parts[0].pauseStart == null ? 0 : 2) -
+        }, 0) + shortCount(parts) * shortWeight + (parts[0].pauseStart == null ? 0 : 2) -
           ([0, 6].includes(new Date(`${open[day]}T12:00:00`).getDay()) ? extra : 0);
         choices.push({ people: [a, b], parts, score });
       }
@@ -112,14 +115,25 @@ export function tryGenerateServiceSchedule(
       const nextRuns = runs.map((run, e) => choice.people.includes(e) ? (consecutive ? run + 1 : 1) : 0);
       const nextWeek = weekDays.map((count, e) => (newWeek ? 0 : count) + Number(choice.people.includes(e)));
       result[day] = choice;
-      if (search(day + 1, next, nextRuns, nextWeek)) return true;
+      if (search(day + 1, next, nextRuns, nextWeek, shortBudget - shortCount(choice.parts))) return true;
     }
     failed.add(key);
     return false;
   }
 
-  if (!search(0, targets, team.map(() => 0), team.map(() => 0))) return;
-  return result.flatMap(({ people, parts }, day) => parts.map((part, p): Shift => ({
+  if (!search(0, targets, team.map(() => 0), team.map(() => 0), open.length)) return;
+  // Keep a complete feasible plan while trying progressively fewer short visits.
+  // All attempts share the visit limit so impossible improvements stay bounded.
+  let best = [...result];
+  let shortVisits = best.reduce((sum, entry) => sum + shortCount(entry.parts), 0);
+  shortWeight = 1000;
+  while (shortVisits > 0 && visits < 60_000) {
+    failed.clear();
+    if (!search(0, targets, team.map(() => 0), team.map(() => 0), shortVisits - 1)) break;
+    best = [...result];
+    shortVisits = best.reduce((sum, entry) => sum + shortCount(entry.parts), 0);
+  }
+  return best.flatMap(({ people, parts }, day) => parts.map((part, p): Shift => ({
     id: `service-${open[day]}-${team[people[p]].id}`,
     employeeId: team[people[p]].id,
     date: open[day],

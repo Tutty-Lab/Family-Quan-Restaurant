@@ -10,7 +10,8 @@
 // ============================================================================
 
 import { describe, expect, it } from "vitest";
-import { generateSchedule, minCoverageOver } from "../scheduler";
+import { generateSchedule } from "../scheduler";
+import { isWorkingInRoleAt } from "../serviceCoverage";
 import { validateSchedule } from "../validation";
 import { DEFAULT_WORK_HOURS, resolveDay } from "../workHours";
 import { publicHolidays } from "../holidays";
@@ -115,13 +116,18 @@ describe("Zwei Bereiche sind immer besetzt", () => {
         workHours: DEFAULT_WORK_HOURS,
         employees: familyTeam(),
       });
-      const roleOf = new Map(familyTeam().map((e) => [e.id, e.workRole] as const));
+      const byId = new Map(familyTeam().map((e) => [e.id, e] as const));
       const hol = publicHolidays(2026);
       for (const d of datesOfMonth(2026, month)) {
         if (resolveDay(DEFAULT_WORK_HOURS, d, hol, {}).closed) continue;
         for (const zone of ["KITCHEN", "SERVICE"] as const) {
-          const zs = shifts.filter((s) => s.date === d && roleOf.get(s.employeeId) === zone);
-          expect(minCoverageOver(zs, 12 * 60, 22 * 60)).toBeGreaterThanOrEqual(1);
+          const zs = shifts.filter((s) => s.date === d);
+          // Owner service substitutions must count in exactly one role.
+          for (let minute = 720; minute < 1320; minute++) {
+            if (!zs.some((s) => isWorkingInRoleAt(s, byId.get(s.employeeId)!, zone, minute))) {
+              throw new Error(`${zone} missing at ${d} ${minute}`);
+            }
+          }
         }
       }
     });

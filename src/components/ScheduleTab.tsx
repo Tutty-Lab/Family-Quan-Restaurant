@@ -18,6 +18,7 @@ import { weeksOfMonth } from "../lib/weeks";
 import { employmentShortVi } from "../lib/employment";
 import { monthlyTargetMinutes } from "../lib/contract";
 import { BreakLabel, ServiceCoveragePanel } from "./ServiceCoveragePanel";
+import { WeeklyWorkPanel } from "./WeeklyWorkPanel";
 
 function isWeekendKey(iso: string): boolean {
   const k = weekdayKeyOf(parseIsoDate(iso));
@@ -154,6 +155,7 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
         const role = roleByEmp.get(s.employeeId);
         if (role === "SERVICE") st.service += 1;
         else if (role === "KITCHEN") st.kitchen += 1;
+        if (role === "KITCHEN" && s.serviceCoverWindows?.length) st.service += 1;
       }
     }
     return stats;
@@ -161,6 +163,7 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
 
   const hasEmployees = schedule.employees.length > 0;
   const serviceByDate = new Map(serviceCoverage.map((day) => [day.date, day]));
+  const kitchenByDate = new Map(store.kitchenCoverage.map((day) => [day.date, day]));
 
   return (
     <section>
@@ -280,6 +283,7 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
       )}
 
       {/* Lỗi kiểm tra */}
+      <WeeklyWorkPanel schedule={schedule} />
       {!validation.valid && schedule.shifts.length > 0 && (
         <div className="mb-3 rounded bg-rose-50 border border-rose-200 text-rose-700 text-sm px-3 py-2">
           <div className="font-medium mb-1">Lỗi kiểm tra ({validation.errors.length}):</div>
@@ -292,7 +296,10 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
       )}
 
       {view !== "day" && (schedule.shifts.length > 0 || store.hasOriginal) &&
-        <ServiceCoveragePanel days={serviceCoverage.filter((day) => gridDates.includes(day.date))} employees={schedule.employees} />}
+        <>
+          <ServiceCoveragePanel role="KITCHEN" days={store.kitchenCoverage.filter((day) => gridDates.includes(day.date))} employees={schedule.employees} />
+          <ServiceCoveragePanel days={serviceCoverage.filter((day) => gridDates.includes(day.date))} employees={schedule.employees} />
+        </>}
 
       {/* Chú thích (bảng tháng và bảng tuần dùng chung lưới) */}
       {view !== "day" && (
@@ -450,7 +457,7 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
               <SummaryRow label="Số nhân viên" dates={gridDates} value={(d) => String(dayStats.get(d)!.count)} />
               {/* Headcount and continuous service coverage answer different questions. */}
               <RoleSummaryRow
-                label="Bồi có ca trong ngày"
+                label="Người làm bồi trong ngày"
                 dates={gridDates}
                 closedByDate={closedByDate}
                 count={(d) => dayStats.get(d)!.service}
@@ -463,11 +470,18 @@ export function ScheduleTab({ store }: { store: UseScheduleReturn }) {
                 unknown={(d) => serviceByDate.get(d)?.breaks.some((b) => b.start == null) ?? false}
               />}
               <RoleSummaryRow
-                label="Bếp (kitchen)"
+                label="Người làm bếp trong ngày"
                 dates={gridDates}
                 closedByDate={closedByDate}
                 count={(d) => dayStats.get(d)!.kitchen}
               />
+              {store.kitchenCoverage.length > 0 && (schedule.shifts.length > 0 || store.hasOriginal) && <RoleSummaryRow
+                label="Bếp tối thiểu đang làm"
+                dates={gridDates}
+                closedByDate={closedByDate}
+                count={(d) => kitchenByDate.get(d)?.minStaff ?? 0}
+                unknown={(d) => kitchenByDate.get(d)?.breaks.some((b) => b.start == null) ?? false}
+              />}
               <SummaryRow
                 label="Tổng giờ"
                 dates={gridDates}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { generateSchedule, minCoverageOver } from "../scheduler";
+import { generateSchedule } from "../scheduler";
 import { createInitialSchedule } from "../sampleData";
 import { analyzeServiceCoverage, serviceCoverageErrors } from "../serviceCoverage";
 import { monthlyTargetMinutes } from "../contract";
@@ -14,13 +14,9 @@ describe("Family Quan service breaks", () => {
   it("does not leave a long service shift without another service worker to cover its break", () => {
     const schedule = createInitialSchedule();
     const shifts = generateSchedule(schedule);
-    const serviceIds = new Set(schedule.employees.filter((e) => e.workRole === "SERVICE").map((e) => e.id));
-    const service = shifts.filter((shift) => serviceIds.has(shift.employeeId));
-    const uncovered = service.filter((shift) => shift.pauseMinutes > 0 && !service.some((other) =>
-      other.employeeId !== shift.employeeId && other.date === shift.date &&
-      Math.min(other.endMinutes, shift.endMinutes) - Math.max(other.startMinutes, shift.startMinutes) >= shift.pauseMinutes,
-    ));
-    expect(uncovered.map((shift) => `${shift.date}: ${shift.employeeId}`)).toEqual([]);
+    // The kitchen owner may now cover service, but only in recorded windows.
+    const uncovered = analyzeServiceCoverage({ ...schedule, shifts }).flatMap((day) => day.breaks.filter((b) => !b.covered));
+    expect(uncovered).toEqual([]);
   });
 
   for (const month of [2, 9, 10, 11]) {
@@ -42,8 +38,14 @@ describe("Family Quan service breaks", () => {
         expect(pause.coveringEmployeeIds.length).toBeGreaterThan(0);
       }
       const serviceIds = new Set(schedule.employees.filter((e) => e.workRole === "SERVICE").map((e) => e.id));
+      // Limit isolated one-hour visits; two-hour duties are now allowed
+      // to spread part-time attendance across weeks.
+      const short = schedule.shifts.filter((s) => serviceIds.has(s.employeeId) && s.paidMinutes < 180);
+      expect(short.filter((s) => s.paidMinutes < 120).length).toBeLessThanOrEqual(month === 10 ? 6 : 5);
+      // Two-hour duties may also keep part-time staff present in every week.
+      expect(short.every((s) => s.isBreakCover || s.paidMinutes === 120)).toBe(true);
       for (const day of days) {
-        expect(minCoverageOver(schedule.shifts.filter((s) => s.date === day.date && serviceIds.has(s.employeeId)), 720, 1320)).toBe(1);
+        expect(day.minStaff).toBe(1);
       }
     });
   }
@@ -140,5 +142,19 @@ describe("Family Quan service breaks", () => {
     expect(shifts).toBeDefined();
     expect(shifts!.filter((s) => s.date === dates[0]).reduce((sum, s) => sum + s.paidMinutes, 0)).toBe(600);
     expect(shifts!.filter((s) => s.date === dates[1]).reduce((sum, s) => sum + s.paidMinutes, 0)).toBe(720);
+  });
+
+  it("uses normal handovers without short visits when contracts allow them", () => {
+    const employees: Employee[] = ["a", "b"].map((id) => ({
+      id, name: id, employmentType: "TEILZEIT", targetMinutes: 600, workRole: "SERVICE",
+    }));
+    const dates = ["2026-09-01", "2026-09-02"];
+    const shifts = tryGenerateServiceSchedule(employees, dates,
+      (date) => resolveDay(DEFAULT_WORK_HOURS, date, publicHolidays(2026)));
+    expect(shifts).toHaveLength(4);
+    expect(shifts!.every((s) => s.paidMinutes >= 180 && !s.isBreakCover)).toBe(true);
+    expect(validateSchedule(employees, shifts!).errors).toEqual([]);
+    const days = analyzeServiceCoverage({ ...createInitialSchedule(), employees, shifts: shifts! });
+    expect(days.filter((d) => dates.includes(d.date)).every((d) => d.ok)).toBe(true);
   });
 });

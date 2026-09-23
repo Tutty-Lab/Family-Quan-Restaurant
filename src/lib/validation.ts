@@ -106,6 +106,27 @@ export function validateSchedule(
     const expectedPaid = presence - shift.pauseMinutes;
     const expectedPause = calculatePause(shift.paidMinutes);
     const employee = employeeById.get(shift.employeeId);
+    if (employee?.isOwner && employee.workRole === "KITCHEN" && hasValidBreak(shift) && shifts.some((other) =>
+      other.date === shift.date && other.employeeId !== shift.employeeId &&
+      employeeById.get(other.employeeId)?.workRole === "KITCHEN" && hasValidBreak(other) &&
+      shift.pauseStartMinutes! < other.pauseStartMinutes! + other.pauseMinutes &&
+      other.pauseStartMinutes! < shift.pauseStartMinutes! + shift.pauseMinutes)) {
+      errors.push({ employeeId: shift.employeeId, date: shift.date,
+        message: `${shift.date}: giờ nghỉ của chủ trùng giờ nghỉ nhân viên bếp.`,
+      });
+    }
+    const covers = shift.serviceCoverWindows ?? [];
+    if (covers.length > 0) {
+      const invalid = !employee?.isOwner || employee.workRole !== "KITCHEN" ||
+        (shift.pauseMinutes > 0 && !hasValidBreak(shift)) ||
+        covers.some((w, i) => !Number.isInteger(w.startMinutes) || !Number.isInteger(w.endMinutes) ||
+          w.startMinutes < shift.startMinutes || w.endMinutes > shift.endMinutes || w.endMinutes <= w.startMinutes ||
+          (hasValidBreak(shift) && w.startMinutes < shift.pauseStartMinutes! + shift.pauseMinutes && shift.pauseStartMinutes! < w.endMinutes) ||
+          covers.slice(i + 1).some((other) => w.startMinutes < other.endMinutes && other.startMinutes < w.endMinutes));
+      if (invalid) errors.push({ employeeId: shift.employeeId, date: shift.date,
+        message: `${shift.date}: giờ chủ phụ bồi không hợp lệ, nằm ngoài ca hoặc trùng giờ nghỉ.`,
+      });
+    }
     if (employee && !mayWorkOn(employee, shift.date)) {
       errors.push({ employeeId: employee.id, date: shift.date,
         message: `${employee.name}: đã xếp ca vào ngày không thể làm ${shift.date}.`,
@@ -117,16 +138,6 @@ export function validateSchedule(
         employeeId: shift.employeeId,
         date: shift.date,
         message: `Giờ ra không sau giờ vào (${shift.date}).`,
-      });
-    }
-    const paidLimit = employeeById.get(shift.employeeId)?.isOwner
-      ? MAX_PAID_MINUTES_OWNER
-      : MAX_PAID_MINUTES;
-    if (shift.paidMinutes > paidLimit) {
-      errors.push({
-        employeeId: shift.employeeId,
-        date: shift.date,
-        message: `Quá ${paidLimit / 60} giờ công ngày ${shift.date}.`,
       });
     }
     if (shift.paidMinutes !== expectedPaid) {
@@ -160,6 +171,8 @@ export function validateSchedule(
     // überschneiden – mittags und abends bei einem Laden, der zwischendurch
     // schließt. Verboten bleibt nur, was sich überlappt.
     const seenDates = new Set<string>();
+    const overlapDates = new Set<string>();
+    const paidByDate = new Map<string, number>();
     for (const shift of empShifts) {
       const ueberschneidet = empShifts.some(
         (a) =>
@@ -168,7 +181,8 @@ export function validateSchedule(
           a.startMinutes < shift.endMinutes &&
           shift.startMinutes < a.endMinutes,
       );
-      if (ueberschneidet && !seenDates.has(shift.date)) {
+      if (ueberschneidet && !overlapDates.has(shift.date)) {
+        overlapDates.add(shift.date);
         errors.push({
           employeeId: emp.id,
           date: shift.date,
@@ -176,6 +190,17 @@ export function validateSchedule(
         });
       }
       seenDates.add(shift.date);
+      paidByDate.set(shift.date, (paidByDate.get(shift.date) ?? 0) + shift.paidMinutes);
+    }
+
+    // The daily limit applies to all pieces together, including split shifts.
+    const paidLimit = emp.isOwner ? MAX_PAID_MINUTES_OWNER : MAX_PAID_MINUTES;
+    for (const [date, paid] of paidByDate) {
+      if (paid > paidLimit) errors.push({
+        employeeId: emp.id,
+        date,
+        message: `Quá ${paidLimit / 60} giờ công ngày ${date}.`,
+      });
     }
 
     if (emp.maxDaysPerWeek != null && !emp.isOwner) {

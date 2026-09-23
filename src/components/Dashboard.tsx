@@ -82,7 +82,7 @@ export function Dashboard({ store }: { store: UseScheduleReturn }) {
       {warnungen.length > 0 && schedule.shifts.length > 0 && (
         <div className="mt-2 rounded bg-amber-50 border border-amber-200 text-amber-900 text-sm px-3 py-2">
           <div className="font-medium">
-            Lịch đã tạo xong, nhưng {warnungen.length} người chưa đủ giờ định mức:
+            Lịch đã tạo xong, còn {warnungen.length} cảnh báo cần xem:
           </div>
           <ul className="mt-1 space-y-0.5">
             {warnungen.map((w, i) => (
@@ -90,8 +90,7 @@ export function Dashboard({ store }: { store: UseScheduleReturn }) {
             ))}
           </ul>
           <div className="mt-1 text-amber-700">
-            Cách xử lý: giảm định mức cho những người này, mở thêm giờ làm, bớt ngày
-            đóng cửa, hoặc chấp nhận phần thiếu và tự bù ở tháng sau.
+            Kiểm tra định mức, ngày được phép làm và ca của từng người trước khi dùng lịch.
           </div>
         </div>
       )}

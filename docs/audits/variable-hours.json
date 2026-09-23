@@ -1,0 +1,4013 @@
+[
+  {
+    "sample": "Gốc",
+    "month": 2,
+    "weeklyHours": [
+      10.5,
+      10,
+      10,
+      12
+    ],
+    "serviceHours": 282,
+    "neededHours": 280,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 8,
+    "generationMs": 368,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 252,
+        "actualHours": 252,
+        "diffHours": 0,
+        "shifts": 28
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 10.5,
+        "targetHours": 42,
+        "actualHours": 42,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10,
+        "targetHours": 40,
+        "actualHours": 40,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10,
+        "targetHours": 40,
+        "actualHours": 40,
+        "diffHours": 0,
+        "shifts": 9
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12,
+        "targetHours": 48,
+        "actualHours": 48,
+        "diffHours": 0,
+        "shifts": 15
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 1,
+      "twoHours": 2
+    },
+    "pass": true
+  },
+  {
+    "sample": "Gốc",
+    "month": 9,
+    "weeklyHours": [
+      10.5,
+      10,
+      10,
+      12
+    ],
+    "serviceHours": 302,
+    "neededHours": 300,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 6,
+    "generationMs": 394,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 270,
+        "actualHours": 270,
+        "diffHours": 0,
+        "shifts": 30
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 25
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 10.5,
+        "targetHours": 45,
+        "actualHours": 45,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10,
+        "targetHours": 43,
+        "actualHours": 43,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10,
+        "targetHours": 43,
+        "actualHours": 43,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12,
+        "targetHours": 51,
+        "actualHours": 51,
+        "diffHours": 0,
+        "shifts": 16
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 3
+    },
+    "pass": true
+  },
+  {
+    "sample": "Gốc",
+    "month": 10,
+    "weeklyHours": [
+      10.5,
+      10,
+      10,
+      12
+    ],
+    "serviceHours": 312,
+    "neededHours": 310,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 11,
+    "generationMs": 315,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 279,
+        "actualHours": 279,
+        "diffHours": 0,
+        "shifts": 31
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 27
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 10.5,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 13
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12,
+        "targetHours": 53,
+        "actualHours": 53,
+        "diffHours": 0,
+        "shifts": 17
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 1,
+      "twoHours": 7
+    },
+    "pass": true
+  },
+  {
+    "sample": "Chuyển giờ giữa bồi",
+    "month": 2,
+    "weeklyHours": [
+      9.5,
+      10.5,
+      10.5,
+      12
+    ],
+    "serviceHours": 282,
+    "neededHours": 280,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 11,
+    "generationMs": 354,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 252,
+        "actualHours": 252,
+        "diffHours": 0,
+        "shifts": 28
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 9.5,
+        "targetHours": 38,
+        "actualHours": 38,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10.5,
+        "targetHours": 42,
+        "actualHours": 42,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.5,
+        "targetHours": 42,
+        "actualHours": 42,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12,
+        "targetHours": 48,
+        "actualHours": 48,
+        "diffHours": 0,
+        "shifts": 15
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 6
+    },
+    "pass": true
+  },
+  {
+    "sample": "Chuyển giờ giữa bồi",
+    "month": 9,
+    "weeklyHours": [
+      9.5,
+      10.5,
+      10.5,
+      12
+    ],
+    "serviceHours": 302,
+    "neededHours": 300,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 6,
+    "generationMs": 246,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 270,
+        "actualHours": 270,
+        "diffHours": 0,
+        "shifts": 30
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 25
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 9.5,
+        "targetHours": 41,
+        "actualHours": 41,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10.5,
+        "targetHours": 45,
+        "actualHours": 45,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.5,
+        "targetHours": 45,
+        "actualHours": 45,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12,
+        "targetHours": 51,
+        "actualHours": 51,
+        "diffHours": 0,
+        "shifts": 16
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 3
+    },
+    "pass": true
+  },
+  {
+    "sample": "Chuyển giờ giữa bồi",
+    "month": 10,
+    "weeklyHours": [
+      9.5,
+      10.5,
+      10.5,
+      12
+    ],
+    "serviceHours": 313,
+    "neededHours": 310,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 12,
+    "generationMs": 288,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 279,
+        "actualHours": 279,
+        "diffHours": 0,
+        "shifts": 31
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 27
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 9.5,
+        "targetHours": 42,
+        "actualHours": 42,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10.5,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.5,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12,
+        "targetHours": 53,
+        "actualHours": 53,
+        "diffHours": 0,
+        "shifts": 17
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 5
+    },
+    "pass": true
+  },
+  {
+    "sample": "Tăng nhẹ",
+    "month": 2,
+    "weeklyHours": [
+      11,
+      10.5,
+      10.5,
+      12.5
+    ],
+    "serviceHours": 288,
+    "neededHours": 280,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 7,
+    "generationMs": 324,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 252,
+        "actualHours": 252,
+        "diffHours": 0,
+        "shifts": 28
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 11,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10.5,
+        "targetHours": 42,
+        "actualHours": 42,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.5,
+        "targetHours": 42,
+        "actualHours": 42,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12.5,
+        "targetHours": 50,
+        "actualHours": 50,
+        "diffHours": 0,
+        "shifts": 16
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 1
+    },
+    "pass": true
+  },
+  {
+    "sample": "Tăng nhẹ",
+    "month": 9,
+    "weeklyHours": [
+      11,
+      10.5,
+      10.5,
+      12.5
+    ],
+    "serviceHours": 308,
+    "neededHours": 300,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 4,
+    "generationMs": 231,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 270,
+        "actualHours": 270,
+        "diffHours": 0,
+        "shifts": 30
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 11,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10.5,
+        "targetHours": 45,
+        "actualHours": 45,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.5,
+        "targetHours": 45,
+        "actualHours": 45,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12.5,
+        "targetHours": 54,
+        "actualHours": 54,
+        "diffHours": 0,
+        "shifts": 18
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 1
+    },
+    "pass": true
+  },
+  {
+    "sample": "Tăng nhẹ",
+    "month": 10,
+    "weeklyHours": [
+      11,
+      10.5,
+      10.5,
+      12.5
+    ],
+    "serviceHours": 320,
+    "neededHours": 310,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 4,
+    "generationMs": 247,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 279,
+        "actualHours": 279,
+        "diffHours": 0,
+        "shifts": 31
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 27
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 11,
+        "targetHours": 49,
+        "actualHours": 49,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10.5,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 13
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.5,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12.5,
+        "targetHours": 55,
+        "actualHours": 55,
+        "diffHours": 0,
+        "shifts": 17
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 2
+    },
+    "pass": true
+  },
+  {
+    "sample": "Tăng 1–2 giờ",
+    "month": 2,
+    "weeklyHours": [
+      12,
+      11,
+      11,
+      13
+    ],
+    "serviceHours": 296,
+    "neededHours": 280,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 2,
+    "generationMs": 102,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 252,
+        "actualHours": 252,
+        "diffHours": 0,
+        "shifts": 28
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 23
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 12,
+        "targetHours": 48,
+        "actualHours": 48,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 11,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 11,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 9
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 13,
+        "targetHours": 52,
+        "actualHours": 52,
+        "diffHours": 0,
+        "shifts": 17
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 0
+    },
+    "pass": true
+  },
+  {
+    "sample": "Tăng 1–2 giờ",
+    "month": 9,
+    "weeklyHours": [
+      12,
+      11,
+      11,
+      13
+    ],
+    "serviceHours": 316,
+    "neededHours": 300,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 0,
+    "generationMs": 92,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 270,
+        "actualHours": 270,
+        "diffHours": 0,
+        "shifts": 30
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 25
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 12,
+        "targetHours": 51,
+        "actualHours": 51,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 11,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 11,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 13,
+        "targetHours": 56,
+        "actualHours": 56,
+        "diffHours": 0,
+        "shifts": 17
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 0
+    },
+    "pass": true
+  },
+  {
+    "sample": "Tăng 1–2 giờ",
+    "month": 10,
+    "weeklyHours": [
+      12,
+      11,
+      11,
+      13
+    ],
+    "serviceHours": 328,
+    "neededHours": 310,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 3,
+    "generationMs": 105,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 279,
+        "actualHours": 279,
+        "diffHours": 0,
+        "shifts": 31
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 27
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 12,
+        "targetHours": 53,
+        "actualHours": 53,
+        "diffHours": 0,
+        "shifts": 13
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 11,
+        "targetHours": 49,
+        "actualHours": 49,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 11,
+        "targetHours": 49,
+        "actualHours": 49,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 13,
+        "targetHours": 58,
+        "actualHours": 58,
+        "diffHours": 0,
+        "shifts": 19
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 1
+    },
+    "pass": true
+  },
+  {
+    "sample": "Tăng đều",
+    "month": 2,
+    "weeklyHours": [
+      12,
+      12,
+      12,
+      14
+    ],
+    "serviceHours": 304,
+    "neededHours": 280,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 1,
+    "generationMs": 216,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 252,
+        "actualHours": 252,
+        "diffHours": 0,
+        "shifts": 28
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 23
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 23
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 12,
+        "targetHours": 48,
+        "actualHours": 48,
+        "diffHours": 0,
+        "shifts": 6
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 12,
+        "targetHours": 48,
+        "actualHours": 48,
+        "diffHours": 0,
+        "shifts": 6
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 12,
+        "targetHours": 48,
+        "actualHours": 48,
+        "diffHours": 0,
+        "shifts": 6
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 14,
+        "targetHours": 56,
+        "actualHours": 56,
+        "diffHours": 0,
+        "shifts": 18
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [
+      {
+        "employeeId": "ma-3",
+        "date": "2026-02-02",
+        "severity": "warning",
+        "message": "Đậu Thi Huấn: tuần 2026-02-02 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-4",
+        "date": "2026-01-26",
+        "severity": "warning",
+        "message": "Su Phuong Anh: tuần 2026-01-26 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-4",
+        "date": "2026-02-23",
+        "severity": "warning",
+        "message": "Su Phuong Anh: tuần 2026-02-23 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-5",
+        "date": "2026-02-23",
+        "severity": "warning",
+        "message": "Nguyen Thi Phuong Liên: tuần 2026-02-23 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      }
+    ],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 15,
+        "gaps": [],
+        "missingBreaks": [
+          {
+            "date": "2026-02-03",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-04",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-09",
+            "employeeId": "ma-3"
+          },
+          {
+            "date": "2026-02-10",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-11",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-12",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-14",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-02-16",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-18",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-02-19",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-23",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-24",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-25",
+            "employeeId": "ma-3"
+          },
+          {
+            "date": "2026-02-26",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-28",
+            "employeeId": "ma-1"
+          }
+        ],
+        "errors": [
+          {
+            "date": "2026-02-03",
+            "employeeId": "ma-1",
+            "message": "2026-02-03: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-04",
+            "employeeId": "ma-1",
+            "message": "2026-02-04: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-09",
+            "employeeId": "ma-3",
+            "message": "2026-02-09: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-10",
+            "employeeId": "ma-1",
+            "message": "2026-02-10: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-11",
+            "employeeId": "ma-1",
+            "message": "2026-02-11: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-12",
+            "employeeId": "ma-1",
+            "message": "2026-02-12: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-14",
+            "employeeId": "ma-5",
+            "message": "2026-02-14: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-16",
+            "employeeId": "ma-1",
+            "message": "2026-02-16: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-18",
+            "employeeId": "ma-5",
+            "message": "2026-02-18: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-19",
+            "employeeId": "ma-1",
+            "message": "2026-02-19: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-23",
+            "employeeId": "ma-1",
+            "message": "2026-02-23: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-24",
+            "employeeId": "ma-1",
+            "message": "2026-02-24: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-25",
+            "employeeId": "ma-3",
+            "message": "2026-02-25: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-26",
+            "employeeId": "ma-1",
+            "message": "2026-02-26: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-28",
+            "employeeId": "ma-1",
+            "message": "2026-02-28: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          }
+        ]
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 0
+    },
+    "pass": false
+  },
+  {
+    "sample": "Tăng đều",
+    "month": 9,
+    "weeklyHours": [
+      12,
+      12,
+      12,
+      14
+    ],
+    "serviceHours": 324,
+    "neededHours": 300,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 0,
+    "generationMs": 115,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 270,
+        "actualHours": 270,
+        "diffHours": 0,
+        "shifts": 30
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 25
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 12,
+        "targetHours": 51,
+        "actualHours": 51,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 12,
+        "targetHours": 51,
+        "actualHours": 51,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 12,
+        "targetHours": 51,
+        "actualHours": 51,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 14,
+        "targetHours": 60,
+        "actualHours": 60,
+        "diffHours": 0,
+        "shifts": 20
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 0
+    },
+    "pass": true
+  },
+  {
+    "sample": "Tăng đều",
+    "month": 10,
+    "weeklyHours": [
+      12,
+      12,
+      12,
+      14
+    ],
+    "serviceHours": 336,
+    "neededHours": 310,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 0,
+    "generationMs": 247,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 279,
+        "actualHours": 279,
+        "diffHours": 0,
+        "shifts": 31
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 12,
+        "targetHours": 53,
+        "actualHours": 53,
+        "diffHours": 0,
+        "shifts": 6
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 12,
+        "targetHours": 53,
+        "actualHours": 53,
+        "diffHours": 0,
+        "shifts": 6
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 12,
+        "targetHours": 53,
+        "actualHours": 53,
+        "diffHours": 0,
+        "shifts": 6
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 14,
+        "targetHours": 62,
+        "actualHours": 62,
+        "diffHours": 0,
+        "shifts": 20
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [
+      {
+        "employeeId": "ma-3",
+        "date": "2026-10-26",
+        "severity": "warning",
+        "message": "Đậu Thi Huấn: tuần 2026-10-26 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-5",
+        "date": "2026-10-05",
+        "severity": "warning",
+        "message": "Nguyen Thi Phuong Liên: tuần 2026-10-05 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      }
+    ],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 20,
+        "gaps": [],
+        "missingBreaks": [
+          {
+            "date": "2026-10-01",
+            "employeeId": "ma-3"
+          },
+          {
+            "date": "2026-10-05",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-06",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-07",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-10-08",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-09",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-10",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-10-12",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-13",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-14",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-15",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-17",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-10-19",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-20",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-21",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-22",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-10-26",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-10-27",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-28",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-29",
+            "employeeId": "ma-1"
+          }
+        ],
+        "errors": [
+          {
+            "date": "2026-10-01",
+            "employeeId": "ma-3",
+            "message": "2026-10-01: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-05",
+            "employeeId": "ma-1",
+            "message": "2026-10-05: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-06",
+            "employeeId": "ma-1",
+            "message": "2026-10-06: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-07",
+            "employeeId": "ma-4",
+            "message": "2026-10-07: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-08",
+            "employeeId": "ma-1",
+            "message": "2026-10-08: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-09",
+            "employeeId": "ma-1",
+            "message": "2026-10-09: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-10",
+            "employeeId": "ma-4",
+            "message": "2026-10-10: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-12",
+            "employeeId": "ma-1",
+            "message": "2026-10-12: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-13",
+            "employeeId": "ma-1",
+            "message": "2026-10-13: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-14",
+            "employeeId": "ma-1",
+            "message": "2026-10-14: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-15",
+            "employeeId": "ma-1",
+            "message": "2026-10-15: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-17",
+            "employeeId": "ma-4",
+            "message": "2026-10-17: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-19",
+            "employeeId": "ma-1",
+            "message": "2026-10-19: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-20",
+            "employeeId": "ma-1",
+            "message": "2026-10-20: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-21",
+            "employeeId": "ma-1",
+            "message": "2026-10-21: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-22",
+            "employeeId": "ma-5",
+            "message": "2026-10-22: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-26",
+            "employeeId": "ma-4",
+            "message": "2026-10-26: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-27",
+            "employeeId": "ma-1",
+            "message": "2026-10-27: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-28",
+            "employeeId": "ma-1",
+            "message": "2026-10-28: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-29",
+            "employeeId": "ma-1",
+            "message": "2026-10-29: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          }
+        ]
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 0
+    },
+    "pass": false
+  },
+  {
+    "sample": "Tăng giảm hỗn hợp",
+    "month": 2,
+    "weeklyHours": [
+      9,
+      11,
+      10.5,
+      11
+    ],
+    "serviceHours": 282,
+    "neededHours": 280,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 11,
+    "generationMs": 244,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 252,
+        "actualHours": 252,
+        "diffHours": 0,
+        "shifts": 28
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 23
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 9,
+        "targetHours": 36,
+        "actualHours": 36,
+        "diffHours": 0,
+        "shifts": 9
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 11,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.5,
+        "targetHours": 42,
+        "actualHours": 42,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 11,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 14
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 1,
+      "twoHours": 4
+    },
+    "pass": true
+  },
+  {
+    "sample": "Tăng giảm hỗn hợp",
+    "month": 9,
+    "weeklyHours": [
+      9,
+      11,
+      10.5,
+      11
+    ],
+    "serviceHours": 302,
+    "neededHours": 300,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 6,
+    "generationMs": 242,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 270,
+        "actualHours": 270,
+        "diffHours": 0,
+        "shifts": 30
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 25
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 9,
+        "targetHours": 39,
+        "actualHours": 39,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 11,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.5,
+        "targetHours": 45,
+        "actualHours": 45,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 11,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 15
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 1,
+      "twoHours": 2
+    },
+    "pass": true
+  },
+  {
+    "sample": "Tăng giảm hỗn hợp",
+    "month": 10,
+    "weeklyHours": [
+      9,
+      11,
+      10.5,
+      11
+    ],
+    "serviceHours": 313,
+    "neededHours": 310,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 7,
+    "generationMs": 285,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 279,
+        "actualHours": 279,
+        "diffHours": 0,
+        "shifts": 31
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 27
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 9,
+        "targetHours": 40,
+        "actualHours": 40,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 11,
+        "targetHours": 49,
+        "actualHours": 49,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.5,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 13
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 11,
+        "targetHours": 49,
+        "actualHours": 49,
+        "diffHours": 0,
+        "shifts": 16
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 1,
+      "twoHours": 4
+    },
+    "pass": true
+  },
+  {
+    "sample": "Giảm nhẹ",
+    "month": 2,
+    "weeklyHours": [
+      10,
+      10,
+      10,
+      11
+    ],
+    "serviceHours": 280,
+    "neededHours": 280,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 12,
+    "generationMs": 242,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 252,
+        "actualHours": 252,
+        "diffHours": 0,
+        "shifts": 28
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 23
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 10,
+        "targetHours": 40,
+        "actualHours": 40,
+        "diffHours": 0,
+        "shifts": 9
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10,
+        "targetHours": 40,
+        "actualHours": 40,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10,
+        "targetHours": 40,
+        "actualHours": 40,
+        "diffHours": 0,
+        "shifts": 9
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 11,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 14
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 5
+    },
+    "pass": true
+  },
+  {
+    "sample": "Giảm nhẹ",
+    "month": 9,
+    "weeklyHours": [
+      10,
+      10,
+      10,
+      11
+    ],
+    "serviceHours": 300,
+    "neededHours": 300,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 6,
+    "generationMs": 232,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 270,
+        "actualHours": 270,
+        "diffHours": 0,
+        "shifts": 30
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 25
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 10,
+        "targetHours": 43,
+        "actualHours": 43,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10,
+        "targetHours": 43,
+        "actualHours": 43,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10,
+        "targetHours": 43,
+        "actualHours": 43,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 11,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 15
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 1,
+      "twoHours": 2
+    },
+    "pass": true
+  },
+  {
+    "sample": "Giảm nhẹ",
+    "month": 10,
+    "weeklyHours": [
+      10,
+      10,
+      10,
+      11
+    ],
+    "serviceHours": 309,
+    "neededHours": 310,
+    "capacityDeficitHours": 1,
+    "ownerServiceHours": 0,
+    "generationMs": 248,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 279,
+        "actualHours": 279,
+        "diffHours": 0,
+        "shifts": 31
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 20
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 10,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 5
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 5
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 5
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 11,
+        "targetHours": 49,
+        "actualHours": 49,
+        "diffHours": 0,
+        "shifts": 16
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [
+      {
+        "employeeId": "ma-3",
+        "date": "2026-10-05",
+        "severity": "warning",
+        "message": "Đậu Thi Huấn: tuần 2026-10-05 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-4",
+        "date": "2026-10-26",
+        "severity": "warning",
+        "message": "Su Phuong Anh: tuần 2026-10-26 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-5",
+        "date": "2026-10-26",
+        "severity": "warning",
+        "message": "Nguyen Thi Phuong Liên: tuần 2026-10-26 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      }
+    ],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 27,
+        "gaps": [],
+        "missingBreaks": [
+          {
+            "date": "2026-10-01",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-02",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-10-05",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-10-06",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-07",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-08",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-09",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-10",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-12",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-13",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-14",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-15",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-16",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-10-17",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-10-19",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-20",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-21",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-10-22",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-23",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-24",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-10-25",
+            "employeeId": "ma-3"
+          },
+          {
+            "date": "2026-10-26",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-27",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-28",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-29",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-30",
+            "employeeId": "ma-3"
+          },
+          {
+            "date": "2026-10-31",
+            "employeeId": "ma-3"
+          }
+        ],
+        "errors": [
+          {
+            "date": "2026-10-01",
+            "employeeId": "ma-1",
+            "message": "2026-10-01: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-02",
+            "employeeId": "ma-5",
+            "message": "2026-10-02: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-05",
+            "employeeId": "ma-4",
+            "message": "2026-10-05: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-06",
+            "employeeId": "ma-1",
+            "message": "2026-10-06: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-07",
+            "employeeId": "ma-1",
+            "message": "2026-10-07: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-08",
+            "employeeId": "ma-1",
+            "message": "2026-10-08: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-09",
+            "employeeId": "ma-1",
+            "message": "2026-10-09: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-10",
+            "employeeId": "ma-1",
+            "message": "2026-10-10: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-12",
+            "employeeId": "ma-1",
+            "message": "2026-10-12: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-13",
+            "employeeId": "ma-1",
+            "message": "2026-10-13: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-14",
+            "employeeId": "ma-1",
+            "message": "2026-10-14: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-15",
+            "employeeId": "ma-1",
+            "message": "2026-10-15: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-16",
+            "employeeId": "ma-4",
+            "message": "2026-10-16: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-17",
+            "employeeId": "ma-5",
+            "message": "2026-10-17: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-19",
+            "employeeId": "ma-1",
+            "message": "2026-10-19: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-20",
+            "employeeId": "ma-1",
+            "message": "2026-10-20: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-21",
+            "employeeId": "ma-5",
+            "message": "2026-10-21: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-22",
+            "employeeId": "ma-1",
+            "message": "2026-10-22: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-23",
+            "employeeId": "ma-1",
+            "message": "2026-10-23: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-24",
+            "employeeId": "ma-4",
+            "message": "2026-10-24: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-25",
+            "employeeId": "ma-3",
+            "message": "2026-10-25: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-26",
+            "employeeId": "ma-1",
+            "message": "2026-10-26: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-27",
+            "employeeId": "ma-1",
+            "message": "2026-10-27: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-28",
+            "employeeId": "ma-1",
+            "message": "2026-10-28: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-29",
+            "employeeId": "ma-1",
+            "message": "2026-10-29: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-30",
+            "employeeId": "ma-3",
+            "message": "2026-10-30: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-31",
+            "employeeId": "ma-3",
+            "message": "2026-10-31: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          }
+        ]
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 0
+    },
+    "pass": false
+  },
+  {
+    "sample": "Giảm cả nhóm",
+    "month": 2,
+    "weeklyHours": [
+      9.5,
+      9.5,
+      9.5,
+      11
+    ],
+    "serviceHours": 274,
+    "neededHours": 280,
+    "capacityDeficitHours": 6,
+    "ownerServiceHours": 0,
+    "generationMs": 157,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 252,
+        "actualHours": 252,
+        "diffHours": 0,
+        "shifts": 28
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 18
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 23
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 9.5,
+        "targetHours": 38,
+        "actualHours": 38,
+        "diffHours": 0,
+        "shifts": 5
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 9.5,
+        "targetHours": 38,
+        "actualHours": 38,
+        "diffHours": 0,
+        "shifts": 5
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 9.5,
+        "targetHours": 38,
+        "actualHours": 38,
+        "diffHours": 0,
+        "shifts": 5
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 11,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 14
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [
+      {
+        "employeeId": "ma-3",
+        "date": "2026-02-02",
+        "severity": "warning",
+        "message": "Đậu Thi Huấn: tuần 2026-02-02 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-4",
+        "date": "2026-01-26",
+        "severity": "warning",
+        "message": "Su Phuong Anh: tuần 2026-01-26 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-4",
+        "date": "2026-02-23",
+        "severity": "warning",
+        "message": "Su Phuong Anh: tuần 2026-02-23 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-5",
+        "date": "2026-01-26",
+        "severity": "warning",
+        "message": "Nguyen Thi Phuong Liên: tuần 2026-01-26 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-5",
+        "date": "2026-02-09",
+        "severity": "warning",
+        "message": "Nguyen Thi Phuong Liên: tuần 2026-02-09 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-5",
+        "date": "2026-02-23",
+        "severity": "warning",
+        "message": "Nguyen Thi Phuong Liên: tuần 2026-02-23 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      }
+    ],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 24,
+        "gaps": [],
+        "missingBreaks": [
+          {
+            "date": "2026-02-03",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-04",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-05",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-06",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-07",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-02-08",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-02-09",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-10",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-11",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-12",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-13",
+            "employeeId": "ma-3"
+          },
+          {
+            "date": "2026-02-14",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-02-16",
+            "employeeId": "ma-3"
+          },
+          {
+            "date": "2026-02-17",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-18",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-19",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-20",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-02-21",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-02-23",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-24",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-25",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-26",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-27",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-02-28",
+            "employeeId": "ma-3"
+          }
+        ],
+        "errors": [
+          {
+            "date": "2026-02-03",
+            "employeeId": "ma-1",
+            "message": "2026-02-03: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-04",
+            "employeeId": "ma-1",
+            "message": "2026-02-04: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-05",
+            "employeeId": "ma-1",
+            "message": "2026-02-05: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-06",
+            "employeeId": "ma-1",
+            "message": "2026-02-06: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-07",
+            "employeeId": "ma-5",
+            "message": "2026-02-07: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-08",
+            "employeeId": "ma-5",
+            "message": "2026-02-08: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-09",
+            "employeeId": "ma-1",
+            "message": "2026-02-09: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-10",
+            "employeeId": "ma-1",
+            "message": "2026-02-10: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-11",
+            "employeeId": "ma-1",
+            "message": "2026-02-11: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-12",
+            "employeeId": "ma-1",
+            "message": "2026-02-12: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-13",
+            "employeeId": "ma-3",
+            "message": "2026-02-13: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-14",
+            "employeeId": "ma-4",
+            "message": "2026-02-14: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-16",
+            "employeeId": "ma-3",
+            "message": "2026-02-16: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-17",
+            "employeeId": "ma-1",
+            "message": "2026-02-17: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-18",
+            "employeeId": "ma-1",
+            "message": "2026-02-18: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-19",
+            "employeeId": "ma-1",
+            "message": "2026-02-19: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-20",
+            "employeeId": "ma-4",
+            "message": "2026-02-20: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-21",
+            "employeeId": "ma-5",
+            "message": "2026-02-21: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-23",
+            "employeeId": "ma-1",
+            "message": "2026-02-23: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-24",
+            "employeeId": "ma-1",
+            "message": "2026-02-24: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-25",
+            "employeeId": "ma-1",
+            "message": "2026-02-25: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-26",
+            "employeeId": "ma-1",
+            "message": "2026-02-26: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-27",
+            "employeeId": "ma-1",
+            "message": "2026-02-27: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-02-28",
+            "employeeId": "ma-3",
+            "message": "2026-02-28: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          }
+        ]
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 0
+    },
+    "pass": false
+  },
+  {
+    "sample": "Giảm cả nhóm",
+    "month": 9,
+    "weeklyHours": [
+      9.5,
+      9.5,
+      9.5,
+      11
+    ],
+    "serviceHours": 294,
+    "neededHours": 300,
+    "capacityDeficitHours": 6,
+    "ownerServiceHours": 2,
+    "generationMs": 153,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 270,
+        "actualHours": 270,
+        "diffHours": 0,
+        "shifts": 30
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 20
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 25
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 9.5,
+        "targetHours": 41,
+        "actualHours": 41,
+        "diffHours": 0,
+        "shifts": 6
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 9.5,
+        "targetHours": 41,
+        "actualHours": 41,
+        "diffHours": 0,
+        "shifts": 6
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 9.5,
+        "targetHours": 41,
+        "actualHours": 41,
+        "diffHours": 0,
+        "shifts": 6
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 11,
+        "targetHours": 47,
+        "actualHours": 47,
+        "diffHours": 0,
+        "shifts": 15
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [
+      {
+        "employeeId": "ma-3",
+        "date": "2026-09-28",
+        "severity": "warning",
+        "message": "Đậu Thi Huấn: tuần 2026-09-28 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-4",
+        "date": "2026-09-28",
+        "severity": "warning",
+        "message": "Su Phuong Anh: tuần 2026-09-28 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-5",
+        "date": "2026-09-28",
+        "severity": "warning",
+        "message": "Nguyen Thi Phuong Liên: tuần 2026-09-28 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      }
+    ],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 25,
+        "gaps": [],
+        "missingBreaks": [
+          {
+            "date": "2026-09-01",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-02",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-03",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-05",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-09-07",
+            "employeeId": "ma-3"
+          },
+          {
+            "date": "2026-09-08",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-09",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-10",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-11",
+            "employeeId": "ma-3"
+          },
+          {
+            "date": "2026-09-12",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-14",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-15",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-16",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-09-17",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-18",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-19",
+            "employeeId": "ma-3"
+          },
+          {
+            "date": "2026-09-21",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-22",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-09-23",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-24",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-25",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-09-26",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-09-28",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-29",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-09-30",
+            "employeeId": "ma-1"
+          }
+        ],
+        "errors": [
+          {
+            "date": "2026-09-01",
+            "employeeId": "ma-1",
+            "message": "2026-09-01: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-02",
+            "employeeId": "ma-1",
+            "message": "2026-09-02: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-03",
+            "employeeId": "ma-1",
+            "message": "2026-09-03: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-05",
+            "employeeId": "ma-5",
+            "message": "2026-09-05: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-07",
+            "employeeId": "ma-3",
+            "message": "2026-09-07: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-08",
+            "employeeId": "ma-1",
+            "message": "2026-09-08: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-09",
+            "employeeId": "ma-1",
+            "message": "2026-09-09: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-10",
+            "employeeId": "ma-1",
+            "message": "2026-09-10: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-11",
+            "employeeId": "ma-3",
+            "message": "2026-09-11: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-12",
+            "employeeId": "ma-1",
+            "message": "2026-09-12: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-14",
+            "employeeId": "ma-1",
+            "message": "2026-09-14: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-15",
+            "employeeId": "ma-1",
+            "message": "2026-09-15: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-16",
+            "employeeId": "ma-5",
+            "message": "2026-09-16: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-17",
+            "employeeId": "ma-1",
+            "message": "2026-09-17: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-18",
+            "employeeId": "ma-1",
+            "message": "2026-09-18: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-19",
+            "employeeId": "ma-3",
+            "message": "2026-09-19: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-21",
+            "employeeId": "ma-1",
+            "message": "2026-09-21: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-22",
+            "employeeId": "ma-4",
+            "message": "2026-09-22: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-23",
+            "employeeId": "ma-1",
+            "message": "2026-09-23: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-24",
+            "employeeId": "ma-1",
+            "message": "2026-09-24: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-25",
+            "employeeId": "ma-5",
+            "message": "2026-09-25: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-26",
+            "employeeId": "ma-4",
+            "message": "2026-09-26: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-28",
+            "employeeId": "ma-1",
+            "message": "2026-09-28: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-29",
+            "employeeId": "ma-1",
+            "message": "2026-09-29: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-09-30",
+            "employeeId": "ma-1",
+            "message": "2026-09-30: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          }
+        ]
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 3
+    },
+    "pass": false
+  },
+  {
+    "sample": "Giảm cả nhóm",
+    "month": 10,
+    "weeklyHours": [
+      9.5,
+      9.5,
+      9.5,
+      11
+    ],
+    "serviceHours": 303,
+    "neededHours": 310,
+    "capacityDeficitHours": 7,
+    "ownerServiceHours": 0,
+    "generationMs": 313,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 279,
+        "actualHours": 279,
+        "diffHours": 0,
+        "shifts": 31
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 20
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 9.5,
+        "targetHours": 42,
+        "actualHours": 42,
+        "diffHours": 0,
+        "shifts": 5
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 9.5,
+        "targetHours": 42,
+        "actualHours": 42,
+        "diffHours": 0,
+        "shifts": 6
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 9.5,
+        "targetHours": 42,
+        "actualHours": 42,
+        "diffHours": 0,
+        "shifts": 5
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 11,
+        "targetHours": 49,
+        "actualHours": 49,
+        "diffHours": 0,
+        "shifts": 16
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [
+      {
+        "employeeId": "ma-3",
+        "date": "2026-10-19",
+        "severity": "warning",
+        "message": "Đậu Thi Huấn: tuần 2026-10-19 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-4",
+        "date": "2026-10-12",
+        "severity": "warning",
+        "message": "Su Phuong Anh: tuần 2026-10-12 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-5",
+        "date": "2026-10-19",
+        "severity": "warning",
+        "message": "Nguyen Thi Phuong Liên: tuần 2026-10-19 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      },
+      {
+        "employeeId": "ma-5",
+        "date": "2026-10-26",
+        "severity": "warning",
+        "message": "Nguyen Thi Phuong Liên: tuần 2026-10-26 chưa có ca nào dù có ngày được phép làm. Chưa phân bổ được ca với cài đặt hiện tại."
+      }
+    ],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 27,
+        "gaps": [],
+        "missingBreaks": [
+          {
+            "date": "2026-10-01",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-10-05",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-06",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-07",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-08",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-09",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-10",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-12",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-13",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-14",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-15",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-10-16",
+            "employeeId": "ma-5"
+          },
+          {
+            "date": "2026-10-17",
+            "employeeId": "ma-3"
+          },
+          {
+            "date": "2026-10-18",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-19",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-20",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-21",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-22",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-10-23",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-24",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-25",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-10-26",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-27",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-28",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-29",
+            "employeeId": "ma-1"
+          },
+          {
+            "date": "2026-10-30",
+            "employeeId": "ma-4"
+          },
+          {
+            "date": "2026-10-31",
+            "employeeId": "ma-3"
+          }
+        ],
+        "errors": [
+          {
+            "date": "2026-10-01",
+            "employeeId": "ma-5",
+            "message": "2026-10-01: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-05",
+            "employeeId": "ma-1",
+            "message": "2026-10-05: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-06",
+            "employeeId": "ma-1",
+            "message": "2026-10-06: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-07",
+            "employeeId": "ma-1",
+            "message": "2026-10-07: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-08",
+            "employeeId": "ma-1",
+            "message": "2026-10-08: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-09",
+            "employeeId": "ma-1",
+            "message": "2026-10-09: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-10",
+            "employeeId": "ma-1",
+            "message": "2026-10-10: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-12",
+            "employeeId": "ma-1",
+            "message": "2026-10-12: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-13",
+            "employeeId": "ma-1",
+            "message": "2026-10-13: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-14",
+            "employeeId": "ma-1",
+            "message": "2026-10-14: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-15",
+            "employeeId": "ma-5",
+            "message": "2026-10-15: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-16",
+            "employeeId": "ma-5",
+            "message": "2026-10-16: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-17",
+            "employeeId": "ma-3",
+            "message": "2026-10-17: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-18",
+            "employeeId": "ma-1",
+            "message": "2026-10-18: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-19",
+            "employeeId": "ma-1",
+            "message": "2026-10-19: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-20",
+            "employeeId": "ma-1",
+            "message": "2026-10-20: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-21",
+            "employeeId": "ma-1",
+            "message": "2026-10-21: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-22",
+            "employeeId": "ma-4",
+            "message": "2026-10-22: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-23",
+            "employeeId": "ma-1",
+            "message": "2026-10-23: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-24",
+            "employeeId": "ma-1",
+            "message": "2026-10-24: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-25",
+            "employeeId": "ma-4",
+            "message": "2026-10-25: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-26",
+            "employeeId": "ma-1",
+            "message": "2026-10-26: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-27",
+            "employeeId": "ma-1",
+            "message": "2026-10-27: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-28",
+            "employeeId": "ma-1",
+            "message": "2026-10-28: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-29",
+            "employeeId": "ma-1",
+            "message": "2026-10-29: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-30",
+            "employeeId": "ma-4",
+            "message": "2026-10-30: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          },
+          {
+            "date": "2026-10-31",
+            "employeeId": "ma-3",
+            "message": "2026-10-31: ca bồi chưa có giờ nghỉ hợp lệ. Cần chọn giờ nghỉ và bố trí người thay."
+          }
+        ]
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 1
+    },
+    "pass": false
+  },
+  {
+    "sample": "Giờ lẻ 0,25",
+    "month": 2,
+    "weeklyHours": [
+      10.25,
+      10.25,
+      10.25,
+      12.5
+    ],
+    "serviceHours": 283,
+    "neededHours": 280,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 11,
+    "generationMs": 279,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 252,
+        "actualHours": 252,
+        "diffHours": 0,
+        "shifts": 28
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 160,
+        "actualHours": 160,
+        "diffHours": 0,
+        "shifts": 24
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 10.25,
+        "targetHours": 41,
+        "actualHours": 41,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10.25,
+        "targetHours": 41,
+        "actualHours": 41,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.25,
+        "targetHours": 41,
+        "actualHours": 41,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12.5,
+        "targetHours": 50,
+        "actualHours": 50,
+        "diffHours": 0,
+        "shifts": 16
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 6
+    },
+    "pass": true
+  },
+  {
+    "sample": "Giờ lẻ 0,25",
+    "month": 9,
+    "weeklyHours": [
+      10.25,
+      10.25,
+      10.25,
+      12.5
+    ],
+    "serviceHours": 303,
+    "neededHours": 300,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 6,
+    "generationMs": 237,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 270,
+        "actualHours": 270,
+        "diffHours": 0,
+        "shifts": 30
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 171,
+        "actualHours": 171,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 10.25,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10.25,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 10
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.25,
+        "targetHours": 44,
+        "actualHours": 44,
+        "diffHours": 0,
+        "shifts": 11
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12.5,
+        "targetHours": 54,
+        "actualHours": 54,
+        "diffHours": 0,
+        "shifts": 18
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 0,
+      "twoHours": 3
+    },
+    "pass": true
+  },
+  {
+    "sample": "Giờ lẻ 0,25",
+    "month": 10,
+    "weeklyHours": [
+      10.25,
+      10.25,
+      10.25,
+      12.5
+    ],
+    "serviceHours": 312,
+    "neededHours": 310,
+    "capacityDeficitHours": 0,
+    "ownerServiceHours": 12,
+    "generationMs": 271,
+    "employees": [
+      {
+        "id": "ma-0",
+        "weeklyHours": 63,
+        "targetHours": 279,
+        "actualHours": 279,
+        "diffHours": 0,
+        "shifts": 31
+      },
+      {
+        "id": "ma-1",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 27
+      },
+      {
+        "id": "ma-2",
+        "weeklyHours": 40,
+        "targetHours": 177,
+        "actualHours": 177,
+        "diffHours": 0,
+        "shifts": 26
+      },
+      {
+        "id": "ma-3",
+        "weeklyHours": 10.25,
+        "targetHours": 45,
+        "actualHours": 45,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-4",
+        "weeklyHours": 10.25,
+        "targetHours": 45,
+        "actualHours": 45,
+        "diffHours": 0,
+        "shifts": 13
+      },
+      {
+        "id": "ma-5",
+        "weeklyHours": 10.25,
+        "targetHours": 45,
+        "actualHours": 45,
+        "diffHours": 0,
+        "shifts": 12
+      },
+      {
+        "id": "ma-6",
+        "weeklyHours": 12.5,
+        "targetHours": 55,
+        "actualHours": 55,
+        "diffHours": 0,
+        "shifts": 17
+      }
+    ],
+    "allTargetsMet": true,
+    "validationErrors": [],
+    "emptyWeeks": [],
+    "coverage": {
+      "KITCHEN": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      },
+      "SERVICE": {
+        "failedDays": 0,
+        "gaps": [],
+        "missingBreaks": [],
+        "errors": []
+      }
+    },
+    "restErrors": [],
+    "windowErrors": [],
+    "shortShifts": {
+      "oneHour": 1,
+      "twoHours": 7
+    },
+    "pass": true
+  }
+]

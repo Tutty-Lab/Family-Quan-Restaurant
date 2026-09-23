@@ -149,6 +149,9 @@ export type Shift = {
   pauseStartMinutes?: number;
   /** Short service assignment specifically covering another employee's break. */
   isBreakCover?: boolean;
+  /** Paid service duties within the kitchen owner's shift. Not a second shift
+   * and never a break: the owner is absent from kitchen during these windows. */
+  serviceCoverWindows?: DayWindow[];
   /** Bezahlte Arbeitszeit in Minuten = presence - pause. */
   paidMinutes: number;
   shiftType: ShiftType;

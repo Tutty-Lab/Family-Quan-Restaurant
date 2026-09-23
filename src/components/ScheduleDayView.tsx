@@ -144,7 +144,10 @@ export function ScheduleDayView({
       </div>
 
       {(schedule.shifts.length > 0 || store.hasOriginal) &&
-        <ServiceCoveragePanel days={store.serviceCoverage.filter((day) => day.date === selected)} employees={schedule.employees} />}
+        <>
+          <ServiceCoveragePanel role="KITCHEN" days={store.kitchenCoverage.filter((day) => day.date === selected)} employees={schedule.employees} />
+          <ServiceCoveragePanel days={store.serviceCoverage.filter((day) => day.date === selected)} employees={schedule.employees} />
+        </>}
 
       {/* Danh sách người làm */}
       <div className="mt-3 space-y-2">

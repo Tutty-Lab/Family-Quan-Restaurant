@@ -20,6 +20,8 @@ export type WeekdayKey =
  * der mit Abstand stärkste Tag. Das Wochenende (Fr/Sa) zieht in einem Bistro
  * ebenfalls etwas an, deshalb ein milder Aufschlag; der Sonntag steht klar an
  * der Spitze. Der Laden hat keinen Ruhetag (7 Tage offen).
+ *
+ * Vorgabe: Freitag 1,2× und Samstag 1,2× gegenüber einem Werktag, Sonntag 1,4×.
  */
 export const DAY_WEIGHTS: Record<WeekdayKey, number> = {
   monday: 1.0,
@@ -28,17 +30,20 @@ export const DAY_WEIGHTS: Record<WeekdayKey, number> = {
   thursday: 1.0,
   friday: 1.2,
   saturday: 1.2,
-  sunday: 1.5, // ngày đông nhất
+  sunday: 1.4, // ngày đông nhất
 };
 
 /**
  * Gewünschter Anteil an Spätschicht-Stunden je Wochentag.
  *
  * FamilyQuan öffnet durchgehend 12:00–22:00; die Stoßzeit ("quán đông") liegt
- * 18:00–21:00, also am Abend. Deshalb liegt der Schwerpunkt leicht über der
+ * 18:00–20:00, also am Abend. Deshalb liegt der Schwerpunkt leicht über der
  * Hälfte auf der Spätschicht. Am Sonntag ist der ganze Tag stark (der stärkste
  * überhaupt), deshalb dort etwas ausgeglichener.
  */
+export const EVENING_RUSH_START = 18 * 60;
+export const EVENING_RUSH_END = 20 * 60;
+
 export const LATE_SHIFT_RATIOS: Record<WeekdayKey, number> = {
   monday: 0.55,
   tuesday: 0.55,

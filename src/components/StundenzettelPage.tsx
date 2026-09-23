@@ -133,7 +133,11 @@ export function StundenzettelPage({
                 <Td className="text-center">
                   {s ? minutesToDecimalHours(bezahltGesamt) : "0,00"}
                 </Td>
-                <Td className="text-left text-slate-500">{bemerkung}</Td>
+                <Td className="text-left text-slate-500">{bemerkung}
+                  {dienste.flatMap((x) => (x.serviceCoverWindows ?? []).map((w) => (
+                    <div key={`${x.id}-${w.startMinutes}`}>Service {minutesToTime(w.startMinutes)}–{minutesToTime(w.endMinutes)}</div>
+                  )))}
+                </Td>
               </tr>
             );
           })}

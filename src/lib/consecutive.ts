@@ -35,7 +35,7 @@ export function consecutiveRunLengthWith(worked: Set<string>, candidate: string)
 
 /** Maximale Kette aufeinanderfolgender Arbeitstage in einer Datumsmenge. */
 export function maxConsecutiveRun(dates: Iterable<string>): number {
-  const sorted = [...dates].sort();
+  const sorted = [...new Set(dates)].sort();
   let best = 0;
   let current = 0;
   let prev: string | null = null;

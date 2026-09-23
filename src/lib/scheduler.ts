@@ -19,6 +19,8 @@
 import type { Employee, Shift } from "../types";
 import {
   DAY_WEIGHTS,
+  EVENING_RUSH_START,
+  EVENING_RUSH_END,
   LATE_SHIFT_RATIOS,
   datesOfMonth,
   parseIsoDate,
@@ -52,6 +54,9 @@ import {
 import { publicHolidays } from "./holidays";
 import { tryGenerateServiceSchedule } from "./serviceScheduler";
 import { isWorkingAt } from "./serviceCoverage";
+import { arrangeCoveredBreaks } from "./roleBreaks";
+import { replaceOneHourReliefWithOwner } from "./ownerRelief";
+import { distributePartTimeWeeks } from "./weeklyDistribution";
 
 export type GenerateInput = {
   year: number;
@@ -238,14 +243,13 @@ export type PeakWindow = {
   maxStaff: number;
 };
 
-// Angabe des Betriebs (FamilyQuan): die Stoßzeit liegt 18:00–21:00 ("quán đông
-// vào tầm từ 18-21h"). Dieselben Zeiten steuern concentrateEveningShifts:
-// kurze Abenddienste enden an EVENING_RUSH_END (21:00) statt am Schließen
+// Angabe des Betriebs (FamilyQuan): die Stoßzeit liegt 18:00–20:00 ("quán đông
+// vào tầm từ 18-20h"). Dieselben Zeiten steuern concentrateEveningShifts:
+// kurze Abenddienste enden an EVENING_RUSH_END (20:00) statt am Schließen
 // (22:00), damit sie auf der Spitze liegen; das Schließen deckt ein langer
 // Dienst ab. In der Spitze sollen je Bereich (Küche/Service) MINDESTENS zwei
 // Kräfte da sein – in der Küche der Chef plus eine, im Service zwei.
-export const EVENING_RUSH_START = 18 * 60; // 18:00
-export const EVENING_RUSH_END = 21 * 60; // 21:00
+export { EVENING_RUSH_START, EVENING_RUSH_END } from "./demand";
 
 const ABEND: PeakWindow = {
   label: "Tối",
@@ -257,7 +261,7 @@ const ABEND: PeakWindow = {
 
 /**
  * Stoßzeiten je Wochentag. FamilyQuan hat keinen Ruhetag und öffnet jeden Tag
- * durchgehend 12:00–22:00; die Abendspitze 18:00–21:00 gilt an jedem Tag. Der
+ * durchgehend 12:00–22:00; die Abendspitze 18:00–20:00 gilt an jedem Tag. Der
  * Sonntag ist zwar der stärkste Tag ("ngày đông nhất"), das schlägt sich aber
  * über das höhere Tagesgewicht in mehr Gesamtstunden nieder, nicht über ein
  * zusätzliches Zeitfenster. Feiertage zählen wie Sonntag – siehe
@@ -2005,7 +2009,7 @@ function fixSameEmployeeOverlaps(state: SchedulerState): void {
  * Uhr liegt – die erste Stunde der Spitze bleibt dünn, die stille Stunde nach
  * 21 Uhr doppelt besetzt.
  *
- * Ziel: ein 3-h-Dienst endet um 21:00 (also 18:00–21:00), ein 4-h-Dienst
+ * Ziel: ein 3-h-Dienst endet um 21:00 (also 18:00–20:00), ein 4-h-Dienst
  * ebenfalls (17:00–21:00). Dauer und Pause bleiben unangetastet, das Monats-Soll
  * also exakt. Zwei Rollen bleiben ausgenommen:
  *
@@ -2694,7 +2698,7 @@ export function generateSchedule(input: GenerateInput): Shift[] {
     groups.get(key)!.push(e);
   }
 
-  const alle: Shift[] = [];
+  let alle: Shift[] = [];
   let tag = 0;
   for (const key of order) {
     const servicePlan = key === "SERVICE" ? tryGenerateServiceSchedule(groups.get(key)!, dates, dayOf) : undefined;
@@ -2702,6 +2706,16 @@ export function generateSchedule(input: GenerateInput): Shift[] {
       ...(servicePlan ?? scheduleZone(groups.get(key)!, dates, effKeyOf, dayOf, String(tag++))),
     );
   }
+
+  for (const role of ["KITCHEN", "SERVICE"]) {
+    const ids = new Set((groups.get(role) ?? []).map((e) => e.id));
+    for (const date of dates) {
+      arrangeCoveredBreaks(allEmployees, alle.filter((s) => s.date === date && ids.has(s.employeeId)), dayOf(date).blocks, alle);
+    }
+  }
+
+  alle = replaceOneHourReliefWithOwner(allEmployees, alle, dayOf);
+  alle = distributePartTimeWeeks(allEmployees, alle, dates, dayOf);
 
   // Stabil sortieren: nach Datum, dann Startzeit, dann Mitarbeiter.
   alle.sort(
